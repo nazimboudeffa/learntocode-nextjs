@@ -13,6 +13,7 @@ const ProblemPage: React.FC<ProblemPageProps> = (context) => {
 	const hasMounted = useHasMounted();
 	if (!hasMounted) return null;
 	const problem = getData(context.params.slug)
+	console.log(problem)
 	return (
 		<>
 		<Workspace problem={problem} />
@@ -23,17 +24,11 @@ const ProblemPage: React.FC<ProblemPageProps> = (context) => {
 
 export default ProblemPage;
 
-export async function getData(slug: string) {
+export function getData(slug: string) {
 	const problem = problems[slug];
 	if (!problem) {
-		return {
-			notFound: true,
-		};
+		return false
 	}
 	problem.handlerFunction = problem.handlerFunction.toString();
-	return {
-		props: {
-			problem
-		}
-	};
+	return problem
 }

@@ -26,6 +26,37 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem }) => {
 					<div className='text-sm'>
 						<div dangerouslySetInnerHTML={{ __html: problem.problemStatement }} />
 					</div>
+
+					{/* Examples */}
+					<div className='mt-4'>
+							{problem.examples.map((example, index) => (
+								<div key={example.id}>
+									<p className='font-medium'>Example {index + 1}: </p>
+									{example.img && <img src={example.img} alt='' className='mt-3' />}
+									<div className='example-card'>
+										<pre>
+											<strong className='text-white'>Input: </strong> {example.inputText}
+											<br />
+											<strong>Output:</strong>
+											{example.outputText} <br />
+											{example.explanation && (
+												<>
+													<strong>Explanation:</strong> {example.explanation}
+												</>
+											)}
+										</pre>
+									</div>
+								</div>
+							))}
+						</div>
+
+						{/* Constraints */}
+						<div className='my-8 pb-4'>
+							<div className='text-sm font-medium'>Constraints:</div>
+							<ul className='ml-5 list-disc '>
+								<div dangerouslySetInnerHTML={{ __html: problem.constraints }} />
+							</ul>
+						</div>
 				</div>
 			</div>
 		</div>
