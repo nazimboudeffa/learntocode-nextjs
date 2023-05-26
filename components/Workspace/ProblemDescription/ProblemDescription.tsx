@@ -19,12 +19,12 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ( { problem } ) =>
 					{/* Problem heading */}
 					<div className='w-full'>
 						<div className='flex space-x-4'>
-							<div className='flex-1 mr-2 text-lg font-medium'>{problem?.title}</div>
+							<div className='flex-1 mr-2 text-lg font-medium'>{problem.title}</div>
 						</div>
 					</div>
 					{/* Problem Statement(paragraphs) */}
 					<div className='text-sm'>
-						<div dangerouslySetInnerHTML={{ __html: problem?.problemStatement }} />
+						<div dangerouslySetInnerHTML={{ __html: problem.problemStatement }} />
 					</div>
 				</div>
 			</div>
