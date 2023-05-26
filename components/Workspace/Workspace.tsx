@@ -10,7 +10,6 @@ type WorkspaceProps = {
 };
 
 const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
-
 	return (
 		<Split className='split'>
 			<div> 

@@ -19,8 +19,7 @@ const Problems = () => {
 		<>
 			<tbody>
 				{problems.map((problem : Problem, idx : number) => {
-					const difficulyColor =
-						problem.difficulty === "Easy" ? "text-green-400" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-pink-400";
+					const difficulyColor = problem.difficulty === "Easy" ? "text-green-400" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-pink-400";
 					return (
 						<tr className={`${idx % 2 == 1 ? "bg-dark-layer-1" : ""}`} key={problem.id}>
 							<th className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>

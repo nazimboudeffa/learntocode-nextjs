@@ -4,7 +4,7 @@ type ProblemDescriptionProps = {
 	problem: Problem;
 }
 
-const ProblemDescription: React.FC<ProblemDescriptionProps> = ( { problem } ) => {
+const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem }) => {
 	return (
 		<div className='bg-dark-layer-1'>
 			{/* TAB */}
