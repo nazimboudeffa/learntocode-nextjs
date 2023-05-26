@@ -7,12 +7,16 @@ import { IoClose } from "react-icons/io5";
 import YouTube from "react-youtube";
 import { Problem, problems } from "@/mock/problems";
 
+type ProblemsTableProps = {
+	setLoadingProblems: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
 type solvedType = {
 	slug: string,
 	solved: string | null
 }[]
 
-const Problems = () => {
+const Problems: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => {
 	const [youtubePlayer, setYoutubePlayer] = useState({
 		isOpen: false,
 		videoId: "",
@@ -20,34 +24,19 @@ const Problems = () => {
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
-	const [solved, setSolved] = useState<solvedType>([]);
+	const solvedProblems = useGetSolvedProblems(setLoadingProblems);
 	useEffect(() => {
-		console.log("test")
 		localStorage.setItem(`solved-welcome`, "true");
-		const getLocal = () => {
-			let solved : solvedType = [];
-			let len = problems.length;
-			for (let i = 0; i < len; i++) {
-				solved.push({
-					slug: problems[i].slug,
-					solved: localStorage.getItem(`solved-${problems[i].slug}`)
-				});
-			}
-			return solved
-		};
-		setSolved(getLocal());
 	}, []);
-	
 	return (
 		<>
 			<tbody>
 				{problems.map((problem : Problem, idx : number) => {
-					console.log(solved);
-					const difficulyColor = problem.difficulty === "Easy" ? "text-green-400" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-red-400";
+					const difficulyColor = problem.difficulty === "Easy" ? "text-green-700" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-red-400";
 					return (
-						<tr className={`${idx % 2 == 1 ? "bg-grey-400" : ""}`} key={problem.id}>
-							<td className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>
-								{"true" === "true" ? (<BsCheckCircle fontSize={"18"} width='18' />) : (<BsCircle fontSize={"18"} width='18' />)}
+						<tr className={`${idx % 2 == 1 ? "bg-zinc-400" : ""}`} key={problem.id}>
+							<td className='px-2 py-4 font-medium whitespace-nowrap text-green-100'>
+								{ true ? (<BsCheckCircle fontSize={"18"} width='18' />) : (<BsCircle fontSize={"18"} width='18' />)}
 							</td>
 							<td className='px-6 py-4'>
                                 <Link
@@ -104,3 +93,24 @@ const Problems = () => {
 	);
 };
 export default Problems
+
+function useGetSolvedProblems(setLoadingProblems: React.Dispatch<React.SetStateAction<boolean>>) {
+	const [solvedProblems, setSolvedProblems] = useState<solvedType>([]);
+	useEffect(() => {
+		const getSolvedProblems = async () => {
+			setLoadingProblems(true);
+			let solved : solvedType = [];
+			let len = problems.length;
+			for (let i = 0; i < len; i++) {
+				solved.push({
+					slug: problems[i].slug,
+					solved: localStorage.getItem(`solved-${problems[i].slug}`)
+				});
+			}
+			setSolvedProblems(solved);
+		};
+		getSolvedProblems();
+		setLoadingProblems(false);
+	}, [setLoadingProblems]);
+	return solvedProblems;
+}
