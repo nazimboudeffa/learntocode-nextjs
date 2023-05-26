@@ -50,7 +50,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 					}, 4000);
 
 					setSolved(true);
-					localStorage.setItem(`solved-${problem.id}`, "solved")
+					localStorage.setItem(`solved-${problem.id}`, "solved");
 				}
 			}
 		} catch (error: any) {
