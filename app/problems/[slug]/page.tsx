@@ -30,17 +30,3 @@ const ProblemPage: React.FC<ProblemPageProps> = (context) => {
 };
 
 export default ProblemPage;
-
-// fetch the local data
-//  SSG
-// getStaticPaths => it create the dynamic routes
-export async function getStaticPaths() {
-	const paths = Object.keys(problems).map((key) => (
-		{ slug: key }
-	));
-
-	return {
-		paths,
-		fallback: false,
-	};
-}
