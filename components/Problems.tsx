@@ -8,6 +8,11 @@ import YouTube from "react-youtube";
 import { Problem, problems } from "@/mock/problems";
 import { table } from "console";
 
+type solvedType = {
+	slug: string,
+	solved: string | null
+}[]
+
 const Problems = () => {
 	const [youtubePlayer, setYoutubePlayer] = useState({
 		isOpen: false,
@@ -16,7 +21,7 @@ const Problems = () => {
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
-	let solved = [];
+	let solved : solvedType = [];
 	let len = problems.length;
 	for (let i = 0; i < len; i++) {
 		solved.push({
