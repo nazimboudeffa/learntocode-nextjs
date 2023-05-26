@@ -22,15 +22,15 @@ const Problems = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
 	let solved : solvedType = [];
-	let len = problems.length;
-	for (let i = 0; i < len; i++) {
-		solved.push({
-			slug: problems[i].slug,
-			solved: localStorage.getItem(`solved-${problems[i].slug}`)
-		});
-	}
 	useEffect(() => {
 		localStorage.setItem(`solved-welcome`, "true");
+		let len = problems.length;
+		for (let i = 0; i < len; i++) {
+			solved.push({
+				slug: problems[i].slug,
+				solved: localStorage.getItem(`solved-${problems[i].slug}`)
+			});
+		}
 	}, []);
 	return (
 		<>
