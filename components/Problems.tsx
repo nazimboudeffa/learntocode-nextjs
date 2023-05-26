@@ -6,7 +6,6 @@ import { AiFillYoutube } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
 import YouTube from "react-youtube";
 import { Problem, problems } from "@/mock/problems";
-import { table } from "console";
 
 type solvedType = {
 	slug: string,
@@ -21,26 +20,34 @@ const Problems = () => {
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
-	let solved : solvedType = [];
+	const [solved, setSolved] = useState<solvedType>([]);
 	useEffect(() => {
+		console.log("test")
 		localStorage.setItem(`solved-welcome`, "true");
-		let len = problems.length;
-		for (let i = 0; i < len; i++) {
-			solved.push({
-				slug: problems[i].slug,
-				solved: localStorage.getItem(`solved-${problems[i].slug}`)
-			});
-		}
+		const getLocal = () => {
+			let solved : solvedType = [];
+			let len = problems.length;
+			for (let i = 0; i < len; i++) {
+				solved.push({
+					slug: problems[i].slug,
+					solved: localStorage.getItem(`solved-${problems[i].slug}`)
+				});
+			}
+			return solved
+		};
+		setSolved(getLocal());
 	}, []);
+	
 	return (
 		<>
 			<tbody>
 				{problems.map((problem : Problem, idx : number) => {
+					console.log(solved);
 					const difficulyColor = problem.difficulty === "Easy" ? "text-green-400" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-red-400";
 					return (
 						<tr className={`${idx % 2 == 1 ? "bg-grey-400" : ""}`} key={problem.id}>
 							<td className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>
-								{solved[idx].solved === "true" ? (<BsCheckCircle fontSize={"18"} width='18' />) : (<BsCircle fontSize={"18"} width='18' />)}
+								{"true" === "true" ? (<BsCheckCircle fontSize={"18"} width='18' />) : (<BsCircle fontSize={"18"} width='18' />)}
 							</td>
 							<td className='px-6 py-4'>
                                 <Link
