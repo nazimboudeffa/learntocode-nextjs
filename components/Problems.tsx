@@ -16,6 +16,9 @@ const Problems = () => {
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
+	useEffect(() => {
+		localStorage.setItem(`solved-welcome`, "true");
+	}, []);
 	return (
 		<>
 			<tbody>
@@ -24,7 +27,7 @@ const Problems = () => {
 					return (
 						<tr className={`${idx % 2 == 1 ? "bg-dark-layer-1" : ""}`} key={problem.id}>
 							<th className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>
-								{localStorage.getItem(`solved-${problem.slug}`) === "true" ? <BsCheckCircle fontSize={"18"} width='18' /> : <BsCircle fontSize={"18"} width='18' />}
+								{"true" === "true" ? <BsCheckCircle fontSize={"18"} width='18' /> : <BsCircle fontSize={"18"} width='18' />}
 							</th>
 							<td className='px-6 py-4'>
                                 <Link
