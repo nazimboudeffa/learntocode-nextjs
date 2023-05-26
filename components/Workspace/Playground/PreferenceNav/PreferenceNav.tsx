@@ -46,18 +46,18 @@ const PreferenceNav: React.FC<PreferenceNavProps> = ({ setSettings, settings }) 
 				</button>
 			</div>
 
-			<div className='flex items-center m-2'>
+			<div className='flex items-center mr-5'>
 				<button
 					className='preferenceBtn group'
 					onClick={() => setSettings({ ...settings, settingsModalIsOpen: true })}
 				>
-					<div className='h-4 w-4 text-dark-gray-6 font-bold text-lg'>
+					<div className='h-4 w-4 font-bold text-lg mr-3'>
 						<AiOutlineSetting />
 					</div>
 				</button>
 
 				<button className='preferenceBtn group' onClick={handleFullScreen}>
-					<div className='h-4 w-4 text-dark-gray-6 font-bold text-lg'>
+					<div className='h-4 w-4 font-bold text-lg'>
 						{!isFullScreen ? <AiOutlineFullscreen /> : <AiOutlineFullscreenExit />}
 					</div>
 				</button>
