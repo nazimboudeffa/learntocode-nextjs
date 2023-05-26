@@ -16,9 +16,14 @@ const Problems = () => {
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
-	const getData = (slug : string) => {
-		return localStorage.getItem(`solved-${slug}`);
-	};
+	let solved = [];
+	let len = problems.length;
+	for (let i = 0; i < len; i++) {
+		solved.push({
+			slug: problems[i].slug,
+			solved: localStorage.getItem(`solved-${problems[i].slug}`)
+		});
+	}
 	useEffect(() => {
 		localStorage.setItem(`solved-welcome`, "true");
 	}, []);
@@ -30,7 +35,7 @@ const Problems = () => {
 					return (
 						<tr className={`${idx % 2 == 1 ? "bg-grey-400" : ""}`} key={problem.id}>
 							<td className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>
-								{getData(problem.slug) === "true" ? (<BsCheckCircle fontSize={"18"} width='18' />) : (<BsCircle fontSize={"18"} width='18' />)}
+								{solved[idx].solved === "true" ? (<BsCheckCircle fontSize={"18"} width='18' />) : (<BsCircle fontSize={"18"} width='18' />)}
 							</td>
 							<td className='px-6 py-4'>
                                 <Link
