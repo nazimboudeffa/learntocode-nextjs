@@ -1,6 +1,6 @@
 'use client';
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsCircle, BsCheckCircle } from "react-icons/bs";
 import { AiFillYoutube } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
@@ -15,7 +15,9 @@ const Problems = () => {
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
-	localStorage.setItem(`solved-welcome`, "true");
+	useEffect(() => {
+		localStorage.setItem(`solved-welcome`, "true");
+	}, []);
 	return (
 		<>
 			<tbody>
