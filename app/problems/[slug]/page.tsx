@@ -2,17 +2,14 @@
 
 import Workspace from "@/components/Workspace/Workspace";
 import useHasMounted from "@/hooks/useHasMounted";
-import { problems } from "@/utils/problems";
 import { Problem } from "@/utils/types/problem";
+import { problems } from "@/utils/problems";
+import { useState } from "react";
 
-type ProblemPageProps = {
-	problem: Problem;
-};
- 
-const ProblemPage: React.FC<ProblemPageProps> = (context) => {
+const ProblemPage: React.FC = (context) => {
 	const hasMounted = useHasMounted();
 	if (!hasMounted) return null;
-	function getData(slug: string) {
+	const getData = (slug: string) => {
 		const problem = problems[slug];
 		if (!problem) {
 			return false
