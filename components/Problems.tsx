@@ -14,7 +14,9 @@ const Problems = () => {
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
-	localStorage.setItem(`solved-welcome`, "true")
+	useEffect(() => {
+		localStorage.setItem(`solved-welcome`, "true");
+	}, []);
 	return (
 		<>
 			<tbody>
