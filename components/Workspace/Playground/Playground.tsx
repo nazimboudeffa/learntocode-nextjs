@@ -2,11 +2,12 @@ import { useState } from "react";
 import PreferenceNav from "./PreferenceNav/PreferenceNav";
 import Split from "react-split";
 import CodeMirror from "@uiw/react-codemirror";
-import { vscodeDark } from "@uiw/codemirror-theme-vscode";
+import { githubLight } from "@uiw/codemirror-theme-github";
 import { javascript } from "@codemirror/lang-javascript";
 import { Problem } from "@/utils/types/problem";
 import EditorFooter from "./EditorFooter";
 import { toast } from "react-toastify";
+import { problems } from "@/utils/problems";
 
 type PlaygroundProps = {
 	problem: Problem;
@@ -33,7 +34,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 		try {
 			userCode = userCode.slice(userCode.indexOf(problem.starterFunctionName));
 			const cb = new Function(`return ${userCode}`)();
-			const handler = problems[pid as string].handlerFunction;
+			const handler = problems[problem.id as string].handlerFunction;
 
 			if (typeof handler === "function") {
 				const success = handler(cb);
@@ -48,10 +49,6 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 						setSuccess(false);
 					}, 4000);
 
-					const userRef = doc(firestore, "users", user.uid);
-					await updateDoc(userRef, {
-						solvedProblems: arrayUnion(pid),
-					});
 					setSolved(true);
 				}
 			}
@@ -83,7 +80,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 				<div className='w-full overflow-auto'>
 					<CodeMirror
 						value={userCode}
-						theme={vscodeDark}
+						theme={githubLight}
 						extensions={[javascript()]}
 						style={{ fontSize: settings.fontSize }}
 					/>

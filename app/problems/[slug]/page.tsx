@@ -13,7 +13,6 @@ const ProblemPage: React.FC<ProblemPageProps> = (context) => {
 	const hasMounted = useHasMounted();
 	if (!hasMounted) return null;
 	const problem = getData(context.params.slug)
-	console.log(problem)
 	return (
 		<>
 		<Workspace problem={problem} />

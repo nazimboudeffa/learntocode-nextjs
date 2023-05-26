@@ -1,5 +1,6 @@
 export type Problem = {
 	id: string;
+	slug: string;
 	title: string;
 	difficulty: string;
 	category: string;
@@ -9,7 +10,8 @@ export type Problem = {
 
 export const problems: Problem[] = [
 	{
-		id: "two-sum",
+		id: "1",
+		slug: "two-sum",
 		title: "Two Sum",
 		difficulty: "Easy",
 		category: "Array",
@@ -17,7 +19,8 @@ export const problems: Problem[] = [
 		videoId: "KxcwwWNx5aA",
 	},
 	{
-		id: "reverse-linked-list",
+		id: "2",
+		slug: "reverse-linked-list",
 		title: "Reverse Linked List",
 		difficulty: "Hard",
 		category: "Linked List",
@@ -25,7 +28,8 @@ export const problems: Problem[] = [
 		videoId: "",
 	},
 	{
-		id: "jump-game",
+		id: "3",
+		slug: "jump-game",
 		title: "Jump Game",
 		difficulty: "Medium",
 		category: "Dynamic Programming",
@@ -33,7 +37,8 @@ export const problems: Problem[] = [
 		videoId: "",
 	},
 	{
-		id: "valid-parentheses",
+		id: "4",
+		slug: "valid-parentheses",
 		title: "Valid Parentheses",
 		difficulty: "Easy",
 		category: "Stack",
@@ -41,51 +46,12 @@ export const problems: Problem[] = [
 		videoId: "",
 	},
 	{
-		id: "search-a-2d-matrix",
+		id: "5",
+		slug: "search-a-2d-matrix",
 		title: "Search a 2D Matrix",
 		difficulty: "Medium",
 		category: "Binary Search",
 		order: 5,
 		videoId: "",
-	},
-	{
-		id: "container-with-most-water",
-		title: "Container With Most Water",
-		difficulty: "Medium",
-		category: "Two Pointers",
-		order: 6,
-		videoId: "",
-	},
-	{
-		id: "merge-intervals",
-		title: "Merge Intervals",
-		difficulty: "Medium",
-		category: "intervals",
-		order: 7,
-		videoId: "",
-	},
-	{
-		id: "maximum-depth-of-binary-tree",
-		title: "Maximum Depth of Binary Tree",
-		difficulty: "Easy",
-		category: "Tree",
-		order: 8,
-		videoId: "",
-	},
-	{
-		id: "best-time-to-buy-and-sell-stock",
-		title: "Best Time to Buy and Sell Stock",
-		difficulty: "Easy",
-		category: "Array",
-		order: 9,
-		videoId: "",
-	},
-	{
-		id: "subsets",
-		title: "Subsets",
-		difficulty: "Medium",
-		category: "Backtracking",
-		order: 10,
-		videoId: "",
-	},
+	}
 ];

@@ -28,7 +28,7 @@ const Problems = () => {
 							<td className='px-6 py-4'>
                                 <Link
                                     className='hover:text-blue-600 cursor-pointer'
-                                    href={`/problems/${problem.id}`}
+                                    href={`/problems/${problem.slug}`}
                                 >
                                     {problem.title}
                                 </Link>
