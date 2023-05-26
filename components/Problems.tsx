@@ -6,6 +6,7 @@ import { AiFillYoutube } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
 import YouTube from "react-youtube";
 import { Problem, problems } from "@/mock/problems";
+import { table } from "console";
 
 const Problems = () => {
 	const [youtubePlayer, setYoutubePlayer] = useState({
@@ -15,6 +16,9 @@ const Problems = () => {
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
+	const getData = (slug : string) => {
+		return localStorage.getItem(`solved-${slug}`);
+	};
 	useEffect(() => {
 		localStorage.setItem(`solved-welcome`, "true");
 	}, []);
@@ -22,13 +26,12 @@ const Problems = () => {
 		<>
 			<tbody>
 				{problems.map((problem : Problem, idx : number) => {
-					const solved = localStorage.getItem(`solved-${problem.slug}`);
 					const difficulyColor = problem.difficulty === "Easy" ? "text-green-400" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-red-400";
 					return (
-						<tr className={`${idx % 2 == 1 ? "bg-dark-layer-1" : ""}`} key={problem.id}>
-							<th className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>
-								{solved === "true" ? (<BsCheckCircle fontSize={"18"} width='18' />) : (<BsCircle fontSize={"18"} width='18' />)}
-							</th>
+						<tr className={`${idx % 2 == 1 ? "bg-grey-400" : ""}`} key={problem.id}>
+							<td className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>
+								{getData(problem.slug) === "true" ? (<BsCheckCircle fontSize={"18"} width='18' />) : (<BsCircle fontSize={"18"} width='18' />)}
+							</td>
 							<td className='px-6 py-4'>
                                 <Link
                                     className='hover:text-blue-600 cursor-pointer'
