@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BsCircle, BsCheckCircle } from "react-icons/bs";
 import { AiFillYoutube } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
@@ -14,7 +14,6 @@ const Problems = () => {
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
-	const [solved, setSolved] = useState<string | null>(null);
 	useEffect(() => {
 		localStorage.setItem(`solved-welcome`, "true");
 	}, []);
@@ -22,9 +21,10 @@ const Problems = () => {
 		<>
 			<tbody>
 				{problems.map((problem : Problem, idx : number) => {
+					let solved = null;
 					if (typeof window !== 'undefined') {
 						// Perform localStorage action
-						setSolved(localStorage.getItem(`solved-${problem.slug}`));
+						solved = localStorage.getItem(`solved-${problem.slug}`);
 					};
 					const difficulyColor = problem.difficulty === "Easy" ? "text-green-400" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-pink-400";
 					return (
