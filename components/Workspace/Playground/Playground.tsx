@@ -25,7 +25,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem }) => {
 	});
 
 	return (
-		<div className='flex flex-col bg-dark-layer-1 relative overflow-x-hidden'>
+		<div className='flex flex-col relative overflow-x-hidden'>
 			<PreferenceNav settings={settings} setSettings={setSettings} />
 
 			<Split className='h-[calc(100vh-94px)]' direction='vertical' sizes={[60, 40]} minSize={60}>
@@ -41,7 +41,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem }) => {
 					{/* testcase heading */}
 					<div className='flex h-10 items-center space-x-6'>
 						<div className='relative flex h-full flex-col justify-center cursor-pointer'>
-							<div className='text-sm font-medium leading-5 text-white'>Testcases</div>
+							<div className='text-sm font-medium leading-5'>Testcases</div>
 							<hr className='absolute bottom-0 h-0.5 w-full rounded-full border-none bg-white' />
 						</div>
 					</div>

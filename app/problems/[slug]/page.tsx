@@ -9,9 +9,10 @@ type ProblemPageProps = {
 	problem: Problem;
 };
  
-const ProblemPage: React.FC<ProblemPageProps> = ({ problem }) => {
+const ProblemPage: React.FC<ProblemPageProps> = (context) => {
 	const hasMounted = useHasMounted();
 	if (!hasMounted) return null;
+	const problem = getData(context.params.slug)
 	return (
 		<>
 		<Workspace problem={problem} />
@@ -22,24 +23,7 @@ const ProblemPage: React.FC<ProblemPageProps> = ({ problem }) => {
 
 export default ProblemPage;
 
-// fetch the local data
-//  SSG
-// getStaticPaths => it create the dynamic routes
-export async function getStaticPaths() {
-	const paths = Object.keys(problems).map((key) => ({
-		params: { slug: key },
-	}));
-
-	return {
-		paths,
-		fallback: false,
-	};
-}
-
-// getStaticProps => it fetch the data
-
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-	const { slug } = params;
+export async function getData(slug: string) {
 	const problem = problems[slug];
 	if (!problem) {
 		return {
@@ -49,7 +33,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 	problem.handlerFunction = problem.handlerFunction.toString();
 	return {
 		props: {
-			problem,
-		},
+			problem
+		}
 	};
 }
