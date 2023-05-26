@@ -31,3 +31,17 @@ export function getData(slug: string) {
 	problem.handlerFunction = problem.handlerFunction.toString();
 	return problem
 }
+
+// fetch the local data
+//  SSG
+// getStaticPaths => it create the dynamic routes
+export async function getStaticPaths() {
+	const paths = Object.keys(problems).map((key) => ({
+		params: { pid: key },
+	}));
+
+	return {
+		paths,
+		fallback: false,
+	};
+}
