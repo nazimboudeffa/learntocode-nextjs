@@ -23,11 +23,12 @@ const Problems = () => {
 		<>
 			<tbody>
 				{problems.map((problem : Problem, idx : number) => {
+					const solved = localStorage.getItem(`solved-${problem.slug}`);
 					const difficulyColor = problem.difficulty === "Easy" ? "text-green-400" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-pink-400";
 					return (
 						<tr className={`${idx % 2 == 1 ? "bg-dark-layer-1" : ""}`} key={problem.id}>
 							<th className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>
-								{"true" === "true" ? <BsCheckCircle fontSize={"18"} width='18' /> : <BsCircle fontSize={"18"} width='18' />}
+								{solved === "true" ? <BsCheckCircle fontSize={"18"} width='18' /> : <BsCircle fontSize={"18"} width='18' />}
 							</th>
 							<td className='px-6 py-4'>
                                 <Link
