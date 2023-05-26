@@ -24,7 +24,10 @@ const Problems = () => {
 		<>
 			<tbody>
 				{problems.map((problem : Problem, idx : number) => {
-					setSolved(localStorage.getItem(`solved-${problem.slug}`));
+					if (typeof window !== 'undefined') {
+						// Perform localStorage action
+						setSolved(localStorage.getItem(`solved-${problem.slug}`));
+					};
 					const difficulyColor = problem.difficulty === "Easy" ? "text-green-400" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-pink-400";
 					return (
 						<tr className={`${idx % 2 == 1 ? "bg-dark-layer-1" : ""}`} key={problem.id}>
