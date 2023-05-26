@@ -1,5 +1,6 @@
+'use client';
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BsCircle, BsCheckCircle } from "react-icons/bs";
 import { AiFillYoutube } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
@@ -14,16 +15,23 @@ const Problems = () => {
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
-	localStorage.setItem(`solved-welcome`, "true")
+	useEffect(() => {
+		localStorage.setItem(`solved-welcome`, "true");
+	}, []);
 	return (
 		<>
 			<tbody>
 				{problems.map((problem : Problem, idx : number) => {
+					let solved = null;
+					if (typeof window !== 'undefined') {
+						// Perform localStorage action
+						solved = localStorage.getItem(`solved-${problem.slug}`);
+					};
 					const difficulyColor = problem.difficulty === "Easy" ? "text-green-400" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-pink-400";
 					return (
 						<tr className={`${idx % 2 == 1 ? "bg-dark-layer-1" : ""}`} key={problem.id}>
 							<th className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>
-								{localStorage.getItem(`solved-${problem.slug}`) === "true" ? <BsCheckCircle fontSize={"18"} width='18' /> : <BsCircle fontSize={"18"} width='18' />}
+								{solved === "true" ? <BsCheckCircle fontSize={"18"} width='18' /> : <BsCircle fontSize={"18"} width='18' />}
 							</th>
 							<td className='px-6 py-4'>
                                 <Link
