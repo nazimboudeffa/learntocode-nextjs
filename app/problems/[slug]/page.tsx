@@ -12,6 +12,14 @@ type ProblemPageProps = {
 const ProblemPage: React.FC<ProblemPageProps> = (context) => {
 	const hasMounted = useHasMounted();
 	if (!hasMounted) return null;
+	function getData(slug: string) {
+		const problem = problems[slug];
+		if (!problem) {
+			return false
+		}
+		problem.handlerFunction = problem.handlerFunction.toString();
+		return problem
+	}
 	const problem = getData(context.params.slug)
 	return (
 		<>
@@ -22,15 +30,6 @@ const ProblemPage: React.FC<ProblemPageProps> = (context) => {
 };
 
 export default ProblemPage;
-
-export function getData(slug: string) {
-	const problem = problems[slug];
-	if (!problem) {
-		return false
-	}
-	problem.handlerFunction = problem.handlerFunction.toString();
-	return problem
-}
 
 // fetch the local data
 //  SSG
