@@ -2,9 +2,10 @@ import { Problem } from "@/utils/types/problem";
 
 type ProblemDescriptionProps = {
 	problem: Problem;
+	_solved: boolean;
 }
 
-const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem }) => {
+const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem, _solved  }) => {
 	return (
 		<div className='bg-dark-layer-1'>
 			{/* TAB */}

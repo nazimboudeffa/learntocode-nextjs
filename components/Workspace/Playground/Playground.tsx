@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PreferenceNav from "./PreferenceNav/PreferenceNav";
 import Split from "react-split";
 import CodeMirror from "@uiw/react-codemirror";
@@ -6,7 +6,8 @@ import { githubLight } from "@uiw/codemirror-theme-github";
 import { javascript } from "@codemirror/lang-javascript";
 import { Problem } from "@/utils/types/problem";
 import EditorFooter from "./EditorFooter";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { problems } from "@/utils/problems";
 
 type PlaygroundProps = {
@@ -34,9 +35,9 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 		try {
 			userCode = userCode.slice(userCode.indexOf(problem.starterFunctionName));
 			const cb = new Function(`return ${userCode}`)();
-			const handler = problems[problem.id as string].handlerFunction;
-
+			const handler = problems[problem.id].handlerFunction;
 			if (typeof handler === "function") {
+				console.log("test2");
 				const success = handler(cb);
 				if (success) {
 					toast.success("Congrats! All tests passed!", {
@@ -53,7 +54,6 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 				}
 			}
 		} catch (error: any) {
-			console.log(error.message);
 			if (
 				error.message.startsWith("AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:")
 			) {
@@ -70,7 +70,17 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 				});
 			}
 		}
-	};
+	}
+
+	useEffect(() => {
+		const code = localStorage.getItem(`code-${problem.id}`);
+		setUserCode(code ? JSON.parse(code) : problem.starterCode)
+	}, [problem.id, problem.starterCode]);
+
+	const onChange = (value: string) => {
+		setUserCode(value)
+		localStorage.setItem(`code-${problem.id}`, JSON.stringify(value))
+	}
 
 	return (
 		<div className='flex flex-col bg-dark-layer-1 relative overflow-x-hidden'>
@@ -81,6 +91,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 					<CodeMirror
 						value={userCode}
 						theme={githubLight}
+						onChange={onChange}
 						extensions={[javascript()]}
 						style={{ fontSize: settings.fontSize }}
 					/>
@@ -126,6 +137,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 					</div>
 				</div>
 			</Split>
+			<ToastContainer />
 			<EditorFooter handleSubmit={handleSubmit} />
 		</div>
 	);
