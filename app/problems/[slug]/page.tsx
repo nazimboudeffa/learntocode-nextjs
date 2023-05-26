@@ -8,11 +8,8 @@ import { problems } from "@/utils/problems";
 const ProblemPage: React.FC = (context : any) => {
 	const hasMounted = useHasMounted();
 	if (!hasMounted) return null;
-	const getData = (slug: string) => {
+	const getData = (slug: string) : Problem => {
 		const problem = problems[slug];
-		if (!problem) {
-			return false
-		}
 		problem.handlerFunction = problem.handlerFunction.toString();
 		return problem
 	}
