@@ -36,9 +36,9 @@ export function getData(slug: string) {
 //  SSG
 // getStaticPaths => it create the dynamic routes
 export async function getStaticPaths() {
-	const paths = Object.keys(problems).map((key) => ({
-		params: { pid: key },
-	}));
+	const paths = Object.keys(problems).map((key) => (
+		{ slug: key }
+	));
 
 	return {
 		paths,
