@@ -10,13 +10,22 @@ export type Problem = {
 
 export const problems: Problem[] = [
 	{
+		id: "0",
+		slug: "welcome",
+		title: "Welcome to Code 101",
+		difficulty: "Easy",
+		category: "Integer",
+		order: 1,
+		videoId: "KxcwwWNx5aA",
+	},
+	{
 		id: "1",
 		slug: "two-sum",
 		title: "Two Sum",
 		difficulty: "Easy",
 		category: "Array",
 		order: 1,
-		videoId: "KxcwwWNx5aA",
+		videoId: "",
 	},
 	{
 		id: "2",

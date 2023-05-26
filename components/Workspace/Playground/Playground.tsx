@@ -37,7 +37,6 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 			const cb = new Function(`return ${userCode}`)();
 			const handler = problems[problem.id].handlerFunction;
 			if (typeof handler === "function") {
-				console.log("test2");
 				const success = handler(cb);
 				if (success) {
 					toast.success("Congrats! All tests passed!", {
@@ -51,6 +50,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 					}, 4000);
 
 					setSolved(true);
+					localStorage.setItem(`solved-${problem.id}`, "solved")
 				}
 			}
 		} catch (error: any) {
