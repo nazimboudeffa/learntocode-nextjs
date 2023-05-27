@@ -60,7 +60,7 @@ const Problems: React.FC = () => {
         </thead>			
 		<tbody>
 		{problems.map((problem : Problem, idx : number) => {
-			const difficulyColor = problem.difficulty === "Easy" ? "text-green-700" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-red-400";
+			const difficulyColor = problem.difficulty === "Easy" ? "text-green-400" : problem.difficulty === "Medium" ? "text-yellow-400" : "text-red-400";
 			return (<tr className={`${idx % 2 == 1 ? "bg-zinc-100" : ""}`} key={problem.id}>
 				<td className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>
 					{ (!(solvedProblems.length===0)&& (solvedProblems[idx].solved === "true"))  ? (<BsCheckCircle fontSize={"18"} width='18' />) : (<BsCircle fontSize={"18"} width='18' />)}
