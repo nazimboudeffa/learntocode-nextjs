@@ -34,8 +34,12 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 	const handleSubmit = async () => {
 		try {
 			userCode = userCode.slice(userCode.indexOf(problem.starterFunctionName));
+			console.log(userCode);
 			const cb = new Function(`return ${userCode}`)();
+			console.log(cb);
 			const handler = problems[problem.id].handlerFunction;
+			console.log(handler);
+			console.log(typeof handler);
 			if (typeof handler === "function") {
 				const success = handler(cb);
 				if (success) {
