@@ -7,15 +7,15 @@ type ProblemDescriptionProps = {
 
 const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem, _solved  }) => {
 	return (
-		<div className='bg-dark-layer-1'>
+		<div className='bg-zinc-400'>
 			{/* TAB */}
-			<div className='flex h-11 w-full items-center pt-2 overflow-x-hidden'>
-				<div className={"rounded-t-[5px] px-5 py-[10px] text-xs cursor-pointer"}>
+			<div className='flex h-11 w-full items-center pt-2 overflow-x-hidden bg-zinc-700'>
+				<div className={"rounded-t-[5px] px-5 py-[10px] text-xs cursor-pointer bg-zinc-400"}>
 					Description
 				</div>
 			</div>
 
-			<div className='flex px-0 py-4 h-screen overflow-y-auto'>
+			<div className='flex px-0 py-4 h-[calc(100vh-94px)] overflow-y-auto'>
 				<div className='px-5'>
 					{/* Problem heading */}
 					<div className='w-full'>

@@ -4,7 +4,7 @@ type EditorFooterProps = {
 
 const EditorFooter: React.FC<EditorFooterProps> = ({ handleSubmit }) => {
 	return (
-		<div className='flex bg-dark-layer-1 absolute bottom-0 z-10 w-full'>
+		<div className='flex bg-zinc-400 absolute bottom-0 z-10 w-full'>
 			<div className='mx-5 my-[10px] flex justify-between w-full'>
 				{/* here goes the console */}
 				<div className='ml-auto flex items-center space-x-4'>
