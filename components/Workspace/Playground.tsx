@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PreferenceNav from "./PreferenceNav/PreferenceNav";
+import PreferenceNav from "./PreferenceNav";
 import Split from "react-split";
 import CodeMirror from "@uiw/react-codemirror";
 import { githubLight } from "@uiw/codemirror-theme-github";
@@ -39,7 +39,6 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 			console.log(cb);
 			const handler = problems[problem.id].handlerFunction;
 			console.log(handler);
-			console.log(typeof handler);
 			if (typeof handler === "function") {
 				const success = handler(cb);
 				if (success) {

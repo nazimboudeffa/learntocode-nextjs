@@ -1,8 +1,8 @@
 'use client'
 
 import Split from "react-split"
-import ProblemDescription from "./ProblemDescription/ProblemDescription"
-import Playground from "./Playground/Playground"
+import ProblemDescription from "./ProblemDescription"
+import Playground from "./Playground"
 import { Problem } from "@/utils/types/problem"
 import useWindowSize from "@/hooks/useWindowSize"
 import { useState } from "react"

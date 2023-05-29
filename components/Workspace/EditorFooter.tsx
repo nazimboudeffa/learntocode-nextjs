@@ -1,6 +1,3 @@
-import React from "react";
-import { BsChevronUp } from "react-icons/bs";
-
 type EditorFooterProps = {
 	handleSubmit: () => void;
 };
