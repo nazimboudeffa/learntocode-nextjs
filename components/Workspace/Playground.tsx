@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PreferenceNav from "./PreferenceNav/PreferenceNav";
+import PreferenceNav from "./PreferenceNav";
 import Split from "react-split";
 import CodeMirror from "@uiw/react-codemirror";
 import { githubLight } from "@uiw/codemirror-theme-github";
@@ -34,8 +34,12 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 	const handleSubmit = async () => {
 		try {
 			userCode = userCode.slice(userCode.indexOf(problem.starterFunctionName));
+			console.log(userCode);
 			const cb = new Function(`return ${userCode}`)();
+			console.log(cb);
 			const handler = problems[problem.id].handlerFunction;
+			console.log(typeof handler);
+			//console.log(handler(cb));
 			if (typeof handler === "function") {
 				const success = handler(cb);
 				if (success) {
@@ -83,7 +87,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 	}
 
 	return (
-		<div className='flex flex-col bg-dark-layer-1 relative overflow-x-hidden'>
+		<div className='flex flex-col bg-zinc-400 relative overflow-x-hidden'>
 			<PreferenceNav settings={settings} setSettings={setSettings} />
 
 			<Split className='h-[calc(100vh-94px)]' direction='vertical' sizes={[60, 40]} minSize={60}>
@@ -114,7 +118,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 							>
 								<div className='flex flex-wrap items-center gap-y-4'>
 									<div
-										className={`font-medium items-center transition-all focus:outline-none inline-flex bg-dark-fill-3 hover:bg-dark-fill-2 relative rounded-lg px-4 py-1 cursor-pointer whitespace-nowrap
+										className={`font-medium items-center transition-all focus:outline-none inline-flex bg-zinc-300 hover:bg-zinc-100 relative rounded-lg px-4 py-1 cursor-pointer whitespace-nowrap
 										${activeTestCaseId === index ? "text-grey-100" : "text-gray-500"}
 									`}
 									>
@@ -127,11 +131,11 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 
 					<div className='font-semibold my-4'>
 						<p className='text-sm font-medium mt-4'>Input:</p>
-						<div className='w-full cursor-text rounded-lg border px-3 py-[10px] bg-dark-fill-3 border-transparent mt-2'>
+						<div className='w-full cursor-text rounded-lg border px-3 py-[10px] bg-zinc-100 border-transparent mt-2'>
 							{problem.examples[activeTestCaseId].inputText}
 						</div>
 						<p className='text-sm font-medium mt-4'>Output:</p>
-						<div className='w-full cursor-text rounded-lg border px-3 py-[10px] bg-dark-fill-3 border-transparent mt-2'>
+						<div className='w-full cursor-text rounded-lg border px-3 py-[10px] bg-zinc-100 border-transparent mt-2'>
 							{problem.examples[activeTestCaseId].outputText}
 						</div>
 					</div>

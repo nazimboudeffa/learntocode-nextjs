@@ -3,18 +3,28 @@ import { Problem } from "../types/problem";
 
 const starterCodeWelcome = `function welcome(num1, num2){
   // Write your code here
+  return num1+num2;
 };`;
 
 // checks if the user has the correct code
 const handlerWelcome = (fn: any) => {
 	// fn is the callback that user's code is passed into
 	try {
-		const num1 = 1
-		const num2 = 1
-		const answer = 2
-		// result is the output of the user's function and answer is the expected output
-		const result = fn(num1, num2);
-		assert.deepStrictEqual(result, answer);
+		const nums = [
+			[1,1]
+		];
+		const targets = [2];
+		const answers = [
+			[2]
+		];
+
+		// loop all tests to check if the user's code is correct
+		for (let i = 0; i < nums.length; i++) {
+			// result is the output of the user's function and answer is the expected output
+			const result = fn(nums[i], targets[i]);
+			console.log(result)
+			assert.deepStrictEqual(result, answers[i]);
+		}
 		return true;
 	} catch (error: any) {
 		console.log("Welcome handler function error");

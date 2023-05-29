@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
                     <Link 
                         href='/'
                     >
-                        Code 101
+                        CODE 101
                     </Link>
                 </div>
 				<div className='flex items-center space-x-4 flex-1 justify-end'>
