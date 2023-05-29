@@ -39,7 +39,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 			console.log(cb);
 			const handler = problems[problem.id].handlerFunction;
 			console.log(typeof handler);
-			console.log(handler(cb));
+			//console.log(handler(cb));
 			if (typeof handler === "function") {
 				const success = handler(cb);
 				if (success) {
