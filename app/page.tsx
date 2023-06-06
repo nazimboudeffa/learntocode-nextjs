@@ -34,7 +34,7 @@ const Home = () => {
                 >
                   Get started
                 </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-white">
+                <a href="/about" className="text-sm font-semibold leading-6 text-white">
                   Learn more <span aria-hidden="true">→</span>
                 </a>
               </div>
