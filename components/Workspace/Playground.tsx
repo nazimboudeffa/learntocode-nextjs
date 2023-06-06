@@ -72,6 +72,40 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 		}
 	}
 
+	const handleRun = async () => {
+		try {
+			userCode = userCode.slice(userCode.indexOf(problem.starterFunctionName));
+			const cb = new Function(`return ${userCode}`)();
+			const handler = problems[problem.id as string].handlerFunction;
+			if (typeof handler === "function") {
+				const success = handler(cb);
+				if (success) {
+					toast.success("It works! Try to submit!", {
+						position: "top-center",
+						autoClose: 3000,
+						theme: "dark",
+					});
+				}
+			}
+		} catch (error: any) {
+			if (
+				error.message.startsWith("AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:")
+			) {
+				toast.error("Oops! One or more test cases failed", {
+					position: "top-center",
+					autoClose: 3000,
+					theme: "dark",
+				});
+			} else {
+				toast.error(error.message, {
+					position: "top-center",
+					autoClose: 3000,
+					theme: "dark",
+				});
+			}
+		}
+	}
+
 	useEffect(() => {
 		const code = localStorage.getItem(`code-${problem.id}`);
 		setUserCode(code ? JSON.parse(code) : problem.starterCode)
@@ -138,7 +172,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 				</div>
 			</Split>
 			<ToastContainer />
-			<EditorFooter handleSubmit={handleSubmit} />
+			<EditorFooter handleRun={handleRun} handleSubmit={handleSubmit} />
 		</div>
 	);
 };
