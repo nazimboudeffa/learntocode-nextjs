@@ -10,21 +10,13 @@ const starterCodeWelcome = `function welcome(num1, num2){
 const handlerWelcome = (fn: any) => {
 	// fn is the callback that user's code is passed into
 	try {
-		const nums = [
-			[1,1]
-		];
-		const targets = [2];
-		const answers = [
-			[2]
-		];
+		const num1 = 1;
+		const num2 = 1;
+		const answer = 2;
 
-		// loop all tests to check if the user's code is correct
-		for (let i = 0; i < nums.length; i++) {
-			// result is the output of the user's function and answer is the expected output
-			const result = fn(nums[i], targets[i]);
-			console.log(result)
-			assert.deepStrictEqual(result, answers[i]);
-		}
+		const result = fn(num1, num2);
+		console.log(result);
+		assert.deepStrictEqual(result, answer);
 		return true;
 	} catch (error: any) {
 		console.log("Welcome handler function error");

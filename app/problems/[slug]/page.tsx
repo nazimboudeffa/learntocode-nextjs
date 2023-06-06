@@ -10,7 +10,7 @@ const ProblemPage: React.FC = (context : any) => {
 	if (!hasMounted) return null;
 	const getData = (slug: string) : Problem => {
 		const problem = problems[slug];
-		problem.handlerFunction = problem.handlerFunction.toString();
+		//problem.handlerFunction = problem.handlerFunction.toString();
 		return problem
 	}
 	const problem = getData(context.params.slug)
