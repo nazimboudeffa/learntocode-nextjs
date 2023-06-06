@@ -39,7 +39,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 			if (typeof handler === "function") {
 				const success = handler(cb);
 				if (success) {
-					toast.success("Congrats! All tests passed!", {
+					toast.success("Congrats! All tests passed", {
 						position: "top-center",
 						autoClose: 3000,
 						theme: "dark",
@@ -80,7 +80,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 			if (typeof handler === "function") {
 				const success = handler(cb);
 				if (success) {
-					toast.success("It works! Try to submit!", {
+					toast.success("It works! Try to submit", {
 						position: "top-center",
 						autoClose: 3000,
 						theme: "dark",
