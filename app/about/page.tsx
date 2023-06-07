@@ -25,7 +25,7 @@ const More = () => {
                     <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">Ressources</h1>
                     <p className="font-normal text-base leading-6 text-gray-600 ">Ce site est entièrement open source, vous pouvez retrouver le code sur <a href="https://github.com/nazimboudeffa/learntocode-nextjs">https://github.com/nazimboudeffa/learntocode-nextjs</a></p>
                     <br/>
-                    <p className="font-normal text-base leading-6 text-gray-600 ">Nous avons comme objectif de proposer 99 problèmes classiques à résoudre que chacun trouvera disponible et pourra y revenir quand il veut</p>
+                    <p className="font-normal text-base leading-6 text-gray-600 ">Nous avons comme objectif de proposer 100 problèmes classiques à résoudre que chacun trouvera disponible et pourra y revenir quand il veut</p>
                     <br/>
                     <p className="font-normal text-base leading-6 text-gray-600 ">Le principe de ce site est de proposer des problèmes de référence</p>
                 </div>
