@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from 'next/image';
+import tip from "@/public/tipeee_tip_btn.svg"
 
 const Navbar: React.FC = () => {
 
@@ -17,7 +19,12 @@ const Navbar: React.FC = () => {
                         href='https://fr.tipeee.com/nazimboudeffa'
                         className='py-1.5 px-3 cursor-pointer rounded text-brand-orange'
                     >
-                        Tip!
+                        <Image
+                            src={tip}
+                            alt="tip"
+                            height={64}
+                            width={64} 
+                        />
                     </Link>
 				</div>
 			</div>
