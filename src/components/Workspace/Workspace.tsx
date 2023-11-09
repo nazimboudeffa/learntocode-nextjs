@@ -3,14 +3,14 @@
 import Split from "react-split"
 import ProblemDescription from "./ProblemDescription"
 import Playground from "./Playground"
-import { Problem } from "@/utils/types/problem"
+import { ProblemElement } from "@/problems/types/problem"
 import useWindowSize from "@/hooks/useWindowSize"
 import { useState } from "react"
 import Confetti from "react-confetti";
 import Navbar from "../Navbar"
 
 type WorkspaceProps = {
-	problem: Problem
+	problem: ProblemElement
 };
 
 const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {

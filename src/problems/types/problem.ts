@@ -1,3 +1,13 @@
+export type Problem = {
+	id: string;
+	slug: string;
+	title: string;
+	difficulty: string;
+	category: string;
+	order: number;
+	videoId?: string;
+};
+
 export type Example = {
 	id: number;
 	inputText: string;
@@ -7,8 +17,9 @@ export type Example = {
 };
 
 // local problem data
-export type Problem = {
+export type ProblemElement = {
 	id: string;
+	slug: string;
 	title: string;
 	problemStatement: string;
 	examples: Example[];

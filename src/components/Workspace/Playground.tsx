@@ -4,14 +4,14 @@ import Split from "react-split";
 import CodeMirror from "@uiw/react-codemirror";
 import { githubLight } from "@uiw/codemirror-theme-github";
 import { javascript } from "@codemirror/lang-javascript";
-import { Problem } from "@/utils/types/problem";
+import { ProblemElement } from "@/problems/types/problem";
 import EditorFooter from "./EditorFooter";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { problems } from "@/utils/problems";
+import { problems } from "@/problems/list";
 
 type PlaygroundProps = {
-	problem: Problem;
+	problem: ProblemElement;
 	setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 	setSolved: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -35,7 +35,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 		try {
 			userCode = userCode.slice(userCode.indexOf(problem.starterFunctionName));
 			const cb = new Function(`return ${userCode}`)();
-			const handler = problems[problem.id as string].handlerFunction;
+			const handler = problems[problem.slug as string].handlerFunction;
 			if (typeof handler === "function") {
 				const success = handler(cb);
 				if (success) {

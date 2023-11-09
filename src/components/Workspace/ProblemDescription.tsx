@@ -1,7 +1,8 @@
-import { Problem } from "@/utils/types/problem";
+import { ProblemElement } from "@/problems/types/problem";
+import Image from "next/image";
 
 type ProblemDescriptionProps = {
-	problem: Problem;
+	problem: ProblemElement;
 	_solved: boolean;
 }
 
@@ -33,7 +34,7 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem, _solve
 							{problem.examples.map((example, index) => (
 								<div key={example.id}>
 									<p className='font-medium'>Example {index + 1}: </p>
-									{example.img && <img src={example.img} alt='' className='mt-3' />}
+									{example.img && <Image src={example.img} alt='' className='mt-3' />}
 									<div className='example-card'>
 										<pre>
 											<strong className='text-white'>Input: </strong> {example.inputText}

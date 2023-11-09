@@ -5,7 +5,7 @@ import { BsCircle, BsCheckCircle } from "react-icons/bs";
 import { AiFillYoutube } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
 import YouTube from "react-youtube";
-import { Problem, problems } from "@/mock/problems";
+import { problems } from "@/problems";
 import LoadingSkeleton from "./Skeletons/LoadingSkeleton";
 
 type solvedType = {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from 'next/image';
-import tip from "@/public/tipeee_tip_btn.svg"
+import tip from "/public/tipeee_tip_btn.svg"
 
 const Navbar: React.FC = () => {
 
@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
                     <Link 
                         href='/'
                     >
-                        CODE 101
+                        Code 101
                     </Link>
                 </div>
 				<div className='flex items-center space-x-4 flex-1 justify-end'>
