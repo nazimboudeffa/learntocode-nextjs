@@ -24,7 +24,7 @@ const Problems: React.FC = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" })
 	};
 	useEffect(() => {
-		localStorage.setItem(`solved-welcome`, "true");
+		localStorage.setItem(`solved-sum`, "true");
 	}, []);
 	const solvedProblems = useGetSolvedProblems();
 	return ( 
