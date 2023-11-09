@@ -7,6 +7,7 @@ import { IoClose } from "react-icons/io5";
 import YouTube from "react-youtube";
 import { problems } from "@/problems";
 import LoadingSkeleton from "./Skeletons/LoadingSkeleton";
+import { Problem } from "@/problems/types/problem";
 
 type solvedType = {
 	slug: string,
