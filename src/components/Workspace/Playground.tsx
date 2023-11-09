@@ -35,7 +35,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 		try {
 			userCode = userCode.slice(userCode.indexOf(problem.starterFunctionName));
 			const cb = new Function(`return ${userCode}`)();
-			const handler = problems[problem.slug as string].handlerFunction;
+			const handler = problems[problem.slug].handlerFunction;
 			if (typeof handler === "function") {
 				const success = handler(cb);
 				if (success) {
@@ -48,9 +48,8 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 					setTimeout(() => {
 						setSuccess(false);
 					}, 4000);
-
 					setSolved(true);
-					localStorage.setItem(`solved-${problem.id}`, "solved");
+					localStorage.setItem(`solved-${problem.slug}`, "solved");
 				}
 			}
 		} catch (error: any) {
@@ -76,7 +75,9 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 		try {
 			userCode = userCode.slice(userCode.indexOf(problem.starterFunctionName));
 			const cb = new Function(`return ${userCode}`)();
-			const handler = problems[problem.id as string].handlerFunction;
+			console.log(cb);
+			const handler = problems[problem.slug].handlerFunction;
+			console.log(handler);
 			if (typeof handler === "function") {
 				const success = handler(cb);
 				if (success) {

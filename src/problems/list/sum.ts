@@ -11,10 +11,8 @@ const handlerSum = (fn: any) => {
 	try {
 		const a = 1;
 		const b = 2;
-		const answer = 2;
-
+		const answer = 3;
 		const result = fn(a, b);
-		console.log(result);
 		assert.deepStrictEqual(result, answer);
 		return true;
 	} catch (error: any) {
@@ -37,9 +35,9 @@ export const sum: ProblemElement = {
 	examples: [
 		{
 			id: 1,
-			inputText: "1, 2",
+			inputText: "1,2",
 			outputText: "3",
-			explanation: "1+1=2",
+			explanation: "1+2=3",
 		}
 	],
 	constraints: `<p class='mt-2'>
@@ -48,5 +46,5 @@ export const sum: ProblemElement = {
 	handlerFunction: handlerSum,
 	starterCode: starterCodeSum,
 	order: 0,
-	starterFunctionName: "function sum(",
+	starterFunctionName: "function add(",
 };
