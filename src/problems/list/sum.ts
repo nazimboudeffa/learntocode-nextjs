@@ -26,10 +26,12 @@ export const sum: ProblemElement = {
 	slug: "sum",
 	title: "0. A Simple Sum",
 	problemStatement: `<p class='mt-3'>
-  Welcome to Code 101!
+  Welcome to Code 101! The place where to learn coding in a friendly and stressless environment.
 </p>
 <p class='mt-3'>
   In this problem, you will be asked to write a function that adds two numbers together.
+</p>
+<p class='mt-3'>
   After that just click the "Run" button to see how this works.
 </p>`,
 	examples: [
