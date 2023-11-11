@@ -1,6 +1,6 @@
 import { ProblemElement } from "@/problems/types/problem";
-import { sum } from "@/problems/list/sum";
-import { fizzBuzz } from "@/problems/list/fizzbuzz";
+import { sum } from "./sum";
+import { fizzBuzz } from "./fizzbuzz";
 
 interface ProblemMap {
 	[key: string]: ProblemElement;
