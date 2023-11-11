@@ -4,11 +4,11 @@ export const problems: Problem[] = [
 	{
 		id: "0",
 		slug: "sum",
-		title: "Sum",
+		title: "Simple sum",
 		difficulty: "Easy",
 		category: "Integer",
 		order: 1,
-		videoId: "",
+		videoId: "KxcwwWNx5aA",
 	},
     {
         id: "1",

@@ -9,10 +9,16 @@ const starterCodeFizzBuzz = `function fizzbuzz(n){
 const handlerFizzBuzz = (fn: any) => {
 	  // fn is the callback that user's code is passed into
 	  try {
-		  const n = 3;
-		  const answer = [1, 2,'Fizz'];
-		  const result = fn(n);
-		  assert.deepStrictEqual(result, answer);
+		  const nums = [3,5,15];
+		  const answers = [
+			  [1, 2,'Fizz'],
+			  [1, 2,'Fizz',4,'Buzz'],
+			  [1, 2,'Fizz',4,'Buzz','Fizz',7,8,'Fizz','Buzz',11,'Fizz',13,14,'FizzBuzz']
+		  ];
+		  for (let i = 0; i < nums.length; i++) {
+			  const result = fn(nums[i]);
+			  assert.deepStrictEqual(result, answers[i]);
+		  }
 		  return true;
 	  } catch (error: any) {
 		  console.log("Fizz Buzz handler function error");
