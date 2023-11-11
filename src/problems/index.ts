@@ -13,7 +13,7 @@ export const problems: Problem[] = [
     {
         id: "1",
         slug: "fizzbuzz",
-        title: "FizzBuzz",
+        title: "Fizz Buzz",
         difficulty: "Easy",
         category: "Integer",
         order: 2,
