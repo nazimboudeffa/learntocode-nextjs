@@ -1,4 +1,25 @@
+import assert from "assert";
 import { ProblemElement } from "../types/problem";
+
+const starterCodeFizzBuzz = `function fizzbuzz(n){
+	// Write your code here
+  };`;
+  
+// checks if the user has the correct code
+const handlerFizzBuzz = (fn: any) => {
+	  // fn is the callback that user's code is passed into
+	  try {
+		  const n = 3;
+		  const answer = [1, 2,'Fizz'];
+		  const result = fn(n);
+		  assert.deepStrictEqual(result, answer);
+		  return true;
+	  } catch (error: any) {
+		  console.log("Fizz Buzz handler function error");
+		  throw new Error(error);
+	  }
+};
+
 export const fizzBuzz: ProblemElement = {
 	id: "1",
 	slug: "fizzbuzz",
@@ -25,27 +46,27 @@ export const fizzBuzz: ProblemElement = {
 		{
 			id: 1,
 			inputText: "[1,2,3]",
-			outputText: "[1,2,Fizz]",
+			outputText: "[1,2,'Fizz']",
 			explanation: "3 is Fizz",
 		},
 		{
 			id: 2,
 			inputText: "[1,2,3,4,5]",
-			outputText: "[1,2,Fizz,4,Buzz]",
+			outputText: "[1,2,'Fizz',4,'Buzz']",
 			explanation: "3 is Fizz and 5 is Buzz",
 		},
 		{
-			id: 2,
+			id: 3,
 			inputText: "[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]",
-			outputText: "[1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz]",
+			outputText: "[1,2,'Fizz',4,'Buzz','Fizz',7,8,'Fizz','Buzz',11,'Fizz',13,14,'FizzBuzz']",
 			explanation: "multiples of 3 is Fizz and multiples of 5 is Buzz, so 15 is multiple of 3 and 5 is FizzBuzz",
 		}
 	],
 	constraints: `<p class='mt-2'>
 	N will never be less than 1.
 </p>`,
-	handlerFunction: "",
-	starterCode: "",
-	order: 0,
+	handlerFunction: handlerFizzBuzz,
+	starterCode: starterCodeFizzBuzz,
+	order: 1,
 	starterFunctionName: "function fizzbuzz(",
 };
