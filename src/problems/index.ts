@@ -19,4 +19,13 @@ export const problems: Problem[] = [
         order: 2,
         videoId: "",
     },
+    {
+        id: "2",
+        slug: "highandlow",
+        title: "Highest and Lowest",
+        difficulty: "Easy",
+        category: "Integer",
+        order: 3,
+        videoId: "",
+    },
 ]
