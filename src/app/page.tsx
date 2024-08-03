@@ -34,8 +34,8 @@ const Home = () => {
                 >
                   Get started
                 </a>
-                <a href="/about" className="text-sm font-semibold leading-6 text-white">
-                  Learn more <span aria-hidden="true">→</span>
+                <a href="https://sublaunch.com/codewithadude" className="text-sm font-semibold leading-6 text-white">
+                  I don't want to code <span aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
