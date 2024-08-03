@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
                     <Link 
                         href='/'
                     >
-                        Code 101
+                        Learn with a Dude
                     </Link>
                 </div>
 				<div className='flex items-center space-x-4 flex-1 justify-end'>
