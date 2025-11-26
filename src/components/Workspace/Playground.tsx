@@ -26,7 +26,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 	const [activeTestCaseId, setActiveTestCaseId] = useState<number>(0);
 	let [userCode, setUserCode] = useState<string>(problem.starterCode);
 	const [settings, setSettings] = useState<ISettings>({
-		fontSize: "14px",
+		fontSize: globalThis.window !== undefined && globalThis.window.innerWidth < 768 ? "12px" : "14px",
 		settingsModalIsOpen: false,
 		dropdownIsOpen: false,
 	});
@@ -131,27 +131,27 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 						style={{ fontSize: settings.fontSize }}
 					/>
 				</div>
-				<div className='w-full px-5 overflow-auto'>
+				<div className='w-full px-3 sm:px-5 overflow-auto'>
 					{/* testcase heading */}
-					<div className='flex h-10 items-center space-x-6'>
+					<div className='flex h-10 items-center space-x-4 sm:space-x-6'>
 						<div className='relative flex h-full flex-col justify-center cursor-pointer'>
-							<div className='text-sm font-medium leading-5'>Testcases</div>
+							<div className='text-xs sm:text-sm font-medium leading-5'>Testcases</div>
 							<hr className='absolute bottom-0 h-0.5 w-full rounded-full border-none bg-white' />
 						</div>
 					</div>
 
-					<div className='flex'>
+					<div className='flex flex-wrap gap-2'>
 						{problem.examples.map((example, index) => (
 							<button
 								type='button'
-								className='mr-2 items-start mt-2'
+								className='items-start mt-2'
 								key={example.id}
 								onClick={() => setActiveTestCaseId(index)}
 								aria-pressed={activeTestCaseId === index}
 							>
 								<div className='flex flex-wrap items-center gap-y-4'>
 									<div
-										className={`font-medium items-center transition-all focus:outline-none inline-flex bg-zinc-300 hover:bg-zinc-100 relative rounded-lg px-4 py-1 cursor-pointer whitespace-nowrap
+										className={`text-xs sm:text-sm font-medium items-center transition-all focus:outline-none inline-flex bg-zinc-300 hover:bg-zinc-100 relative rounded-lg px-3 sm:px-4 py-1 cursor-pointer whitespace-nowrap
 										${activeTestCaseId === index ? "text-grey-100" : "text-gray-500"}
 									`}
 									>
@@ -163,12 +163,12 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 					</div>
 
 					<div className='font-semibold my-4'>
-						<p className='text-sm font-medium mt-4'>Input:</p>
-						<div className='w-full cursor-text rounded-lg border px-3 py-[10px] bg-zinc-100 border-transparent mt-2'>
+						<p className='text-xs sm:text-sm font-medium mt-4'>Input:</p>
+						<div className='w-full cursor-text rounded-lg border px-2 sm:px-3 py-[10px] bg-zinc-100 border-transparent mt-2 text-xs sm:text-sm overflow-x-auto'>
 							{problem.examples[activeTestCaseId].inputText}
 						</div>
-						<p className='text-sm font-medium mt-4'>Output:</p>
-						<div className='w-full cursor-text rounded-lg border px-3 py-[10px] bg-zinc-100 border-transparent mt-2'>
+						<p className='text-xs sm:text-sm font-medium mt-4'>Output:</p>
+						<div className='w-full cursor-text rounded-lg border px-2 sm:px-3 py-[10px] bg-zinc-100 border-transparent mt-2 text-xs sm:text-sm overflow-x-auto'>
 							{problem.examples[activeTestCaseId].outputText}
 						</div>
 					</div>
