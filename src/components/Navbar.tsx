@@ -5,16 +5,16 @@ const Navbar: React.FC = () => {
 
 	return (
 		<nav className='relative flex h-[50px] w-full shrink-0 items-center px-2 sm:px-5 bg-zinc-100'>
-			<div className="flex w-full items-center justify-between">
-                <div className='h-[22px] flex-1 min-w-0'>
+			<div className="flex w-full items-center justify-between gap-4">
+                <div className='flex items-center flex-1 min-w-0'>
                     <Link 
                         href='/'
-                        className='text-xs sm:text-sm md:text-base truncate block'
+                        className='text-xs sm:text-sm md:text-base truncate hover:text-blue-600'
                     >
                         Learn to Code
                     </Link>
                 </div>
-                <div className='flex-1 text-center'>
+                <div className='flex items-center justify-center flex-1'>
                     <Link 
                         href='/problems'
                         className='text-sm sm:text-base font-medium hover:text-blue-600 cursor-pointer'
@@ -22,10 +22,10 @@ const Navbar: React.FC = () => {
                         Problems
                     </Link>
                 </div>
-				<div className='flex items-center space-x-2 sm:space-x-4 flex-1 justify-end'>
+				<div className='flex items-center justify-end flex-1'>
                     <Link
                         href='https://fr.tipeee.com/nazimboudeffa'
-                        className='py-1.5 px-1 sm:px-3 cursor-pointer rounded text-brand-orange'
+                        className='flex items-center py-1.5 px-1 sm:px-3 cursor-pointer rounded text-brand-orange hover:opacity-80 transition-opacity'
                     >
                         <Image
                             src={'/tipeee_tip_btn.svg'}
