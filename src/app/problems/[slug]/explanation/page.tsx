@@ -23,6 +23,25 @@ export default function ProblemExplanationPage(context: any) {
         <div className="mx-auto max-w-3xl py-10 px-6">
           <h1 className="text-2xl font-bold">{problem.title} — Explanation</h1>
           <p className="mt-2 text-sm text-gray-600">Difficulty: {problem.difficulty} • Category: {problem.category}</p>
+          
+          {problem.videoId ? (
+            <div className="mt-6 aspect-video">
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${problem.videoId}`}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-lg border-0"
+              ></iframe>
+            </div>
+          ) : (
+            <div className="mt-6 p-4 bg-gray-100 rounded-lg text-center text-gray-600">
+              Video Coming Soon
+            </div>
+          )}
+
           <div className="prose prose-sm max-w-none mt-6">
             {problem.solution ? (
               <div dangerouslySetInnerHTML={{ __html: problem.solution }} />
