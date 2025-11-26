@@ -49,7 +49,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 						setSuccess(false);
 					}, 4000);
 					setSolved(true);
-					localStorage.setItem(`solved-${problem.slug}`, "solved");
+					localStorage.setItem(`solved-${problem.slug}`, "true");
 				}
 			}
 		} catch (error: any) {
@@ -142,10 +142,12 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 
 					<div className='flex'>
 						{problem.examples.map((example, index) => (
-							<div
-								className='mr-2 items-start mt-2 '
+							<button
+								type='button'
+								className='mr-2 items-start mt-2'
 								key={example.id}
 								onClick={() => setActiveTestCaseId(index)}
+								aria-pressed={activeTestCaseId === index}
 							>
 								<div className='flex flex-wrap items-center gap-y-4'>
 									<div
@@ -156,7 +158,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 										Case {index + 1}
 									</div>
 								</div>
-							</div>
+							</button>
 						))}
 					</div>
 

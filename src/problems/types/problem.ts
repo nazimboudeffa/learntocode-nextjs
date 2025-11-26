@@ -21,10 +21,14 @@ export type ProblemElement = {
 	id: string;
 	slug: string;
 	title: string;
+	difficulty: "Easy" | "Medium" | "Hard";
+	category: string;
 	problemStatement: string;
 	examples: Example[];
 	constraints: string;
 	order: number;
+	videoId?: string;
+	solution?: string; // HTML explanation to render in the Explanation page
 	starterCode: string;
 	handlerFunction: ((fn: any) => boolean) | string;
 	starterFunctionName: string;

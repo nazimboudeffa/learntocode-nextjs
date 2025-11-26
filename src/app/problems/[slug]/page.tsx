@@ -2,7 +2,7 @@
 
 import Workspace from "@/components/Workspace/Workspace";
 import useHasMounted from "@/hooks/useHasMounted";
-import { Problem, ProblemElement } from "@/problems/types/problem";
+import { ProblemElement } from "@/problems/types/problem";
 import { problems } from "@/problems/list";
 
 const ProblemPage: React.FC = (context : any) => {

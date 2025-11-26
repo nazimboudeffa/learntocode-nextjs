@@ -1,4 +1,4 @@
-import assert from "assert";
+import { assertDeepStrictEqual } from "@/problems/utils/assert";
 import { ProblemElement } from "../types/problem";
 
 const starterCodeHighAndLow = `function highAndLow(numbers){
@@ -19,7 +19,7 @@ const handlerHighAndLow= (fn: any) => {
 		  ];
 		  for (let i = 0; i < nums.length; i++) {
 			  const result = fn(nums[i]);
-			  assert.deepStrictEqual(result, answers[i]);
+			  assertDeepStrictEqual(result, answers[i]);
 		  }
 		  return true;
 	  } catch (error: any) {
@@ -29,9 +29,11 @@ const handlerHighAndLow= (fn: any) => {
 };
 
 export const highAndLow: ProblemElement = {
-	id: "2",
+	id: "highandlow",
 	slug: "highandlow",
-	title: "2. High and Low",
+	title: "High and Low",
+	difficulty: "Easy",
+	category: "Integer",
 	problemStatement: `<p class='mt-3'>
 	In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
 </p>
@@ -69,6 +71,19 @@ export const highAndLow: ProblemElement = {
 </p>`,
 	handlerFunction: handlerHighAndLow,
 	starterCode: starterCodeHighAndLow,
-	order: 1,
+	order: 12,
 	starterFunctionName: "function highAndLow(",
+	videoId: "",
+		solution: `<p class='mt-3'>
+Split the input by spaces, parse to numbers, track <code>min</code> and <code>max</code>, then return <code>max + " " + min</code>. Time: O(n), Space: O(1) aside from parsing.</p>
+<pre><code>function highAndLow(numbers){
+	const arr = numbers.split(' ').map(Number);
+	let min = arr[0], max = arr[0];
+	for (const x of arr) {
+		if (x < min) min = x;
+		if (x > max) max = x;
+	}
+	return max + ' ' + min;
+}
+</code></pre>`
 };

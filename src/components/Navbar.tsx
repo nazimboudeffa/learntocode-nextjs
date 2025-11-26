@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from 'next/image';
-import tip from "/public/tipeee_tip_btn.svg"
 
 const Navbar: React.FC = () => {
 
@@ -11,7 +10,15 @@ const Navbar: React.FC = () => {
                     <Link 
                         href='/'
                     >
-                        Learn with a Dude
+                        Learn to Code with a Dude
+                    </Link>
+                </div>
+                <div className='flex-1 text-center'>
+                    <Link 
+                        href='/problems'
+                        className='font-medium hover:text-blue-600 cursor-pointer'
+                    >
+                        Problems
                     </Link>
                 </div>
 				<div className='flex items-center space-x-4 flex-1 justify-end'>
@@ -20,7 +27,7 @@ const Navbar: React.FC = () => {
                         className='py-1.5 px-3 cursor-pointer rounded text-brand-orange'
                     >
                         <Image
-                            src={tip}
+                            src={'/tipeee_tip_btn.svg'}
                             alt="tip"
                             height={64}
                             width={64} 

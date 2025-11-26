@@ -1,4 +1,4 @@
-import assert from "assert";
+import { assertDeepStrictEqual } from "@/problems/utils/assert";
 import { ProblemElement } from "../types/problem";
 
 const starterCodeSum = `function add(a, b){
@@ -13,7 +13,7 @@ const handlerSum = (fn: any) => {
 		const b = 2;
 		const answer = 3;
 		const result = fn(a, b);
-		assert.deepStrictEqual(result, answer);
+		assertDeepStrictEqual(result, answer);
 		return true;
 	} catch (error: any) {
 		console.log("Simple Sum handler function error");
@@ -22,9 +22,11 @@ const handlerSum = (fn: any) => {
 };
 
 export const sum: ProblemElement = {
-    id: "0",
+    id: "sum",
 	slug: "sum",
-	title: "0. A Simple Sum",
+	title: "A Simple Sum",
+	difficulty: "Easy",
+	category: "Integer",
 	problemStatement: `<p class='mt-3'>
   Welcome to Code 101! The place where to learn coding in a friendly and stressless environment.
 </p>
@@ -49,4 +51,12 @@ export const sum: ProblemElement = {
 	starterCode: starterCodeSum,
 	order: 0,
 	starterFunctionName: "function add(",
+    videoId: "KxcwwWNx5aA",
+	solution: `<p class='mt-3'>
+	Addition is straightforward: return <code>a + b</code>. Time: O(1), Space: O(1).
+	</p>
+	<pre><code>function add(a, b) {
+  return a + b;
+}
+	</code></pre>`
 };

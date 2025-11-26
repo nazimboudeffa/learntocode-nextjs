@@ -1,4 +1,4 @@
-import assert from "assert";
+import { assertDeepStrictEqual } from "@/problems/utils/assert";
 import { ProblemElement } from "../types/problem";
 
 const starterCodeFizzBuzz = `function fizzbuzz(n){
@@ -17,7 +17,7 @@ const handlerFizzBuzz = (fn: any) => {
 		  ];
 		  for (let i = 0; i < nums.length; i++) {
 			  const result = fn(nums[i]);
-			  assert.deepStrictEqual(result, answers[i]);
+			  assertDeepStrictEqual(result, answers[i]);
 		  }
 		  return true;
 	  } catch (error: any) {
@@ -27,9 +27,11 @@ const handlerFizzBuzz = (fn: any) => {
 };
 
 export const fizzBuzz: ProblemElement = {
-	id: "1",
+	id: "fizzbuzz",
 	slug: "fizzbuzz",
-	title: "1. Fizz Buzz",
+	title: "Fizz Buzz",
+	difficulty: "Easy",
+	category: "Integer",
 	problemStatement: `<p class='mt-3'>
 	This is the very known Fizz Buzz problem
 </p>
@@ -73,6 +75,29 @@ export const fizzBuzz: ProblemElement = {
 </p>`,
 	handlerFunction: handlerFizzBuzz,
 	starterCode: starterCodeFizzBuzz,
-	order: 1,
+	order: 11,
 	starterFunctionName: "function fizzbuzz(",
+	solution: `<p class='mt-3'>
+Iterate i from 1..N and push:
+<ul>
+<li>"FizzBuzz" if i%3==0 and i%5==0</li>
+<li>"Fizz" if i%3==0</li>
+<li>"Buzz" if i%5==0</li>
+<li>i otherwise</li>
+</ul>
+Time: O(N), Space: O(N).
+</p>
+<pre><code>function fizzbuzz(n) {
+  const out = [];
+  for (let i=1;i<=n;i++) {
+    const by3 = i%3===0, by5 = i%5===0;
+    if (by3 && by5) out.push('FizzBuzz');
+    else if (by3) out.push('Fizz');
+    else if (by5) out.push('Buzz');
+    else out.push(i);
+  }
+  return out;
+}
+</code></pre>`,
+	videoId: "",
 };
