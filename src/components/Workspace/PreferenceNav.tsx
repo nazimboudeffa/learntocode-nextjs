@@ -37,27 +37,25 @@ const PreferenceNav: React.FC<PreferenceNavProps> = ({ setSettings, settings }) 
 	}, [isFullScreen]);
 
 	return (
-		<div className='flex items-center justify-between h-11 w-full bg-zinc-700'>
-			<div className='flex items-center'>
-				<button className='flex cursor-pointer items-center rounded focus:outline-none bg-zinc-300 hover:bg-zinc-100 ml-2 sm:ml-3 px-2 py-1.5 font-medium'>
-					<div className='flex items-center px-1'>
-						<div className='text-[10px] sm:text-xs'>JavaScript</div>
-					</div>
-				</button>
+		<div className='flex items-center justify-between h-12 w-full bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg'>
+			<div className='flex items-center pt-2'>
+				<div className={"rounded-t-lg px-4 sm:px-6 py-2.5 text-sm font-semibold cursor-pointer bg-white/95 dark:bg-slate-800/95 text-indigo-700 dark:text-indigo-300 shadow-md"}>
+					💻 Code
+				</div>
 			</div>
 
-			<div className='flex items-center mr-2 sm:mr-5 space-x-1 sm:space-x-2'>
+			<div className='flex items-center mr-3 sm:mr-5 space-x-2 sm:space-x-3'>
 				<button
-					className='preferenceBtn group'
+					className='p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all group shadow-md hover:shadow-lg'
 					onClick={() => setSettings({ ...settings, settingsModalIsOpen: true })}
 				>
-					<div className='h-4 w-4 font-bold text-base sm:text-lg text-zinc-300'>
+					<div className='h-5 w-5 font-bold text-lg sm:text-xl text-white group-hover:rotate-90 transition-transform duration-300'>
 						<AiOutlineSetting />
 					</div>
 				</button>
 
-				<button className='preferenceBtn group' onClick={handleFullScreen}>
-					<div className='h-4 w-4 font-bold text-base sm:text-lg text-zinc-300'>
+				<button className='p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all group shadow-md hover:shadow-lg' onClick={handleFullScreen}>
+					<div className='h-5 w-5 font-bold text-lg sm:text-xl text-white group-hover:scale-110 transition-transform'>
 						{isFullScreen ? <AiOutlineFullscreenExit /> : <AiOutlineFullscreen />}
 					</div>
 				</button>

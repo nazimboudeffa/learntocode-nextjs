@@ -5,18 +5,18 @@ type EditorFooterProps = {
 
 const EditorFooter: React.FC<EditorFooterProps> = ({ handleRun, handleSubmit }) => {
 	return (
-		<div className='flex bg-zinc-400 absolute bottom-0 z-10 w-full'>
-			<div className='mx-2 sm:mx-5 my-[10px] flex justify-between w-full'>
+		<div className='flex bg-gradient-to-r from-slate-800 to-slate-900 absolute bottom-0 z-10 w-full border-t-2 border-slate-700 shadow-lg'>
+			<div className='mx-3 sm:mx-6 my-3 flex justify-between w-full'>
 				{/* here goes the console */}
-				<div className='ml-auto flex items-center space-x-2 sm:space-x-4'>
+				<div className='ml-auto flex items-center space-x-3 sm:space-x-4'>
 					<button
-						className='px-2 sm:px-3 py-1.5 text-xs sm:text-sm font-medium items-center whitespace-nowrap transition-all focus:outline-none inline-flex rounded-lg bg-green-400 hover:bg-green-500'
+						className='px-4 sm:px-6 py-2 text-xs sm:text-sm font-bold items-center whitespace-nowrap transition-all focus:outline-none inline-flex rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg hover:shadow-emerald-500/50 hover:scale-105 active:scale-95'
 						onClick={handleRun}
 					>
 						Run
 					</button>
 					<button
-						className='px-2 sm:px-3 py-1.5 font-medium items-center transition-all focus:outline-none inline-flex text-xs sm:text-sm rounded-lg bg-red-400 hover:bg-red-500'
+						className='px-4 sm:px-6 py-2 font-bold items-center transition-all focus:outline-none inline-flex text-xs sm:text-sm rounded-lg bg-gradient-to-r from-rose-600 to-pink-700 hover:from-rose-500 hover:to-pink-600 text-white shadow-lg hover:shadow-pink-500/50 hover:scale-105 active:scale-95'
 						onClick={handleSubmit}
 					>
 						Submit

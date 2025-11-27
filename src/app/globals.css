@@ -8,12 +8,34 @@
 }
 
 .gutter {
-    background-color: #eee;
     background-repeat: no-repeat;
     background-position: 50%;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    z-index: 1;
 }
 
 .gutter.gutter-horizontal {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
     cursor: col-resize;
+    background-color: #4f46e5;
+    border-left: 1px solid #312e81;
+    border-right: 1px solid #312e81;
+}
+
+.gutter.gutter-horizontal:hover {
+    background-color: #6366f1;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.gutter.gutter-vertical {
+    cursor: row-resize;
+    background-color: #4f46e5;
+    border-top: 1px solid #312e81;
+    border-bottom: 1px solid #312e81;
+}
+
+.gutter.gutter-vertical:hover {
+    background-color: #6366f1;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
 }
