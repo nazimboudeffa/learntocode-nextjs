@@ -9,7 +9,7 @@ import { problems } from "@/problems/list";
 const ProblemPage: React.FC = (context : any) => {
 	const hasMounted = useHasMounted();
 	if (!hasMounted) return null;
-	const params = use(context.params);
+	const params: { slug: string } = use(context.params);
 	const getData = (slug: string) : ProblemElement => {
 		const problem = problems[slug];
 		return problem;

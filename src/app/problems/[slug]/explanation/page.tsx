@@ -3,8 +3,8 @@ import Navbar from "@/components/Navbar";
 import { problems } from "@/problems/list";
 
 export default function ProblemExplanationPage(context: any) {
-  const params = use(context.params);
-  const slug = params.slug as string;
+  const params: { slug: string } = use(context.params);
+  const slug = params.slug;
   const problem = problems[slug];
   if (!problem) {
     return (
