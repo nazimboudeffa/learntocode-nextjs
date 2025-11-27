@@ -6,6 +6,7 @@ import Playground from "./Playground"
 import { ProblemElement } from "@/problems/types/problem"
 import { useState, useEffect } from "react"
 import Navbar from "../Navbar"
+import Confetti from "./Confetti"
 
 type WorkspaceProps = {
 	problem: ProblemElement
@@ -13,6 +14,7 @@ type WorkspaceProps = {
 
 const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
 	const [solved, setSolved] = useState(false);
+	const [success, setSuccess] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
@@ -33,7 +35,7 @@ const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
 					<ProblemDescription problem={problem} _solved={solved} />
 				</div>
 				<div className='h-[50vh]'>
-					<Playground problem={problem} setSolved={setSolved} />
+					<Playground problem={problem} setSuccess={setSuccess} setSolved={setSolved} />
 				</div>
 			</div>
 		) : (
@@ -42,10 +44,11 @@ const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
 					<ProblemDescription problem={problem} _solved={solved} />
 				</div>
 				<div>
-					<Playground problem={problem} setSolved={setSolved} />
+					<Playground problem={problem} setSuccess={setSuccess} setSolved={setSolved} />
 				</div>
 			</Split>
 		)}
+		<Confetti active={success} />
 		</>
 	)
 }
