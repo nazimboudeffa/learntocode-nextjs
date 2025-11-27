@@ -125,37 +125,96 @@ To add a new problem:
 1. Create a new file in `src/problems/list/`:
 
 ```typescript
-import assert from "../utils/assert";
+import { assertDeepStrictEqual } from "@/problems/utils/assert";
 import { ProblemElement } from "../types/problem";
 
 const starterCode = `function yourFunction(param) {
   // Write your code here
-}`;
+};`;
 
 function handler(fn: Function) {
-  assert.assertStrictEqual(fn(input), expectedOutput);
-  return true;
+  try {
+    const result = fn(testInput);
+    assertDeepStrictEqual(result, expectedOutput);
+    return true;
+  } catch (error: any) {
+    console.log("Handler function error");
+    throw new Error(error);
+  }
 }
 
 export const yourProblem: ProblemElement = {
   id: "your-problem",
   slug: "yourproblem",
   title: "Your Problem Title",
-  difficulty: "Easy",
+  difficulty: "Easy", // "Easy" | "Medium" | "Hard"
   category: "Category Name",
-  order: 17, // Next available order
-  problemStatement: "Problem description...",
-  examples: [/* test cases */],
-  constraints: "Constraints...",
+  order: 18, // Next available order
+  
+  // Problem statement as plain text (string or array of paragraphs)
+  problemStatement: [
+    "First paragraph explaining the problem.",
+    "Second paragraph with more details.",
+    "Third paragraph with example usage."
+  ],
+  
+  // Test case examples
+  examples: [
+    {
+      id: 1,
+      inputText: "input1, input2",
+      outputText: "expectedOutput",
+      explanation: "Explanation of this test case"
+    }
+  ],
+  
+  // Constraints as plain text (string or array)
+  constraints: "No special constraints.",
+  
+  // Structured solution (no HTML)
+  solution: {
+    approach: "Brief description of the solution approach.",
+    explanation: "Detailed step-by-step explanation of how the solution works.",
+    complexity: {
+      time: "O(n)",
+      space: "O(1)"
+    },
+    code: `function yourFunction(param) {
+  return result;
+}`
+  },
+  
   starterCode,
   handlerFunction: handler,
-  solution: `<h3>Solution</h3><p>Explanation...</p>`,
+  starterFunctionName: "function yourFunction(",
   videoId: "youtube-video-id" // Optional
 };
 ```
 
-2. Register it in `src/problems/list/index.ts`
+2. Register it in `src/problems/list/index.ts`:
+
+```typescript
+import { yourProblem } from "./yourproblem";
+
+export const problems: ProblemMap = {
+  // ... existing problems
+  "yourproblem": yourProblem,
+};
+```
+
 3. Your problem will automatically appear in the problems list!
+
+### New Problem Structure (v2.0)
+
+Problems now use **plain text** instead of HTML for better maintainability:
+
+- **problemStatement**: Array of strings (paragraphs) or single string
+- **constraints**: String or array of strings
+- **solution**: Structured object with:
+  - `approach`: Brief solution strategy
+  - `explanation`: Detailed explanation (string or array)
+  - `complexity`: Object with `time` and `space` properties
+  - `code`: Solution code as template literal
 
 ## 🤝 Contributing
 
