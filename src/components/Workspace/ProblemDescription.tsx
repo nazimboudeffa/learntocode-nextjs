@@ -26,8 +26,12 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem, _solve
 						</div>
 					</div>
 					{/* Problem Statement(paragraphs) */}
-					<div className='text-sm sm:text-base leading-relaxed text-slate-300 bg-slate-800/50 rounded-xl p-6 shadow-md border border-slate-700'>
-						<div dangerouslySetInnerHTML={{ __html: problem.problemStatement }} />
+					<div className='text-sm sm:text-base leading-relaxed text-slate-300 bg-slate-800/50 rounded-xl p-6 shadow-md border border-slate-700 space-y-3'>
+						{Array.isArray(problem.problemStatement) ? (
+							problem.problemStatement.map((para, idx) => <p key={idx}>{para}</p>)
+						) : (
+							<p>{problem.problemStatement}</p>
+						)}
 					</div>
 
 					{/* Examples */}
@@ -57,9 +61,24 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem, _solve
 						<div className='my-6 pb-4 bg-slate-800/50 rounded-xl p-5 shadow-md border border-slate-700'>
 							<div className='text-sm sm:text-base font-bold mb-3 text-amber-400'>⚠️ Constraints:</div>
 							<ul className='ml-5 list-disc text-xs sm:text-sm text-slate-300 space-y-1'>
-								<div dangerouslySetInnerHTML={{ __html: problem.constraints }} />
+									{Array.isArray(problem.constraints) ? (
+										problem.constraints.map((constraint) => <li key={constraint}>{constraint}</li>)
+									) : (
+										<li>{problem.constraints}</li>
+									)}
 							</ul>
 						</div>
+
+							{/* Explanation Link */}
+							<div className='mt-4 flex'>
+								<a
+									href={`/problems/${problem.slug}/explanation`}
+									className='inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold rounded-lg transition-all hover:scale-105 shadow-lg'
+								>
+									<span>View Explanation</span>
+									<span>→</span>
+								</a>
+							</div>
 				</div>
 			</div>
 		</div>

@@ -34,12 +34,10 @@ export const highAndLow: ProblemElement = {
 	title: "High and Low",
 	difficulty: "Easy",
 	category: "Integer",
-	problemStatement: `<p class='mt-3'>
-	In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
-</p>
-<p class='mt-3'>
- Found on <a href="https://solers.io">solers.io</a>
-</p>`,
+	problemStatement: [
+		"In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.",
+		"Found on solers.io"
+	],
 	examples: [
 		{
 			id: 1,
@@ -60,23 +58,24 @@ export const highAndLow: ProblemElement = {
 			explanation: "9 is the highest number and -5 is the lowest number",
 		}
 	],
-	constraints: `<p class='mt-2'>
-	
-	<ul>
-	<li>All numbers are valid Int32, no need to validate them.</li>
-    <li>It will never be null or undefined.</li>
-    <li>There will always be at least one number in the input string.</li>
-	</ul>
-
-</p>`,
+	constraints: [
+		"All numbers are valid Int32, no need to validate them.",
+		"It will never be null or undefined.",
+		"There will always be at least one number in the input string."
+	],
 	handlerFunction: handlerHighAndLow,
 	starterCode: starterCodeHighAndLow,
 	order: 12,
 	starterFunctionName: "function highAndLow(",
 	videoId: "",
-		solution: `<p class='mt-3'>
-Split the input by spaces, parse to numbers, track <code>min</code> and <code>max</code>, then return <code>max + " " + min</code>. Time: O(n), Space: O(1) aside from parsing.</p>
-<pre><code>function highAndLow(numbers){
+	solution: {
+		approach: "Parse the string and track minimum and maximum values.",
+		explanation: "Split the input string by spaces, convert each element to a number, then iterate through to find the min and max values. Return them as 'max min'.",
+		complexity: {
+			time: "O(n)",
+			space: "O(1)"
+		},
+		code: `function highAndLow(numbers){
 	const arr = numbers.split(' ').map(Number);
 	let min = arr[0], max = arr[0];
 	for (const x of arr) {
@@ -84,6 +83,6 @@ Split the input by spaces, parse to numbers, track <code>min</code> and <code>ma
 		if (x > max) max = x;
 	}
 	return max + ' ' + min;
-}
-</code></pre>`
+}`
+	}
 };

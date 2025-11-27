@@ -30,27 +30,30 @@ export const isEven: ProblemElement = {
   title: "Check if Number is Even",
   difficulty: "Easy",
   category: "Math",
-  problemStatement: `<p class='mt-3'>
-  Write a function that returns <code>true</code> if a number is even, and <code>false</code> if it's odd.
-</p>
-<p class='mt-3'>
-  This teaches you the modulo operator <code>%</code> and boolean logic.
-</p>`,
+  problemStatement: [
+    "Write a function that returns true if a number is even, and false if it's odd.",
+    "This teaches you the modulo operator % and boolean logic."
+  ],
   examples: [
     { id: 1, inputText: "2", outputText: "true" },
     { id: 2, inputText: "3", outputText: "false" },
     { id: 3, inputText: "0", outputText: "true" },
   ],
-  constraints: `<p class='mt-2'>n is an integer.</p>`,
+  constraints: "n is an integer.",
   handlerFunction: handlerIsEven,
   starterCode: starterCodeIsEven,
   order: 2,
   starterFunctionName: "function isEven(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Use the modulo operator <code>%</code> to check if a number is divisible by 2. Time: O(1), Space: O(1).</p>
-<pre><code>function isEven(n){
+  solution: {
+    approach: "Use the modulo operator to check divisibility by 2.",
+    explanation: "A number is even if dividing by 2 leaves no remainder. Use n % 2 === 0 to check this.",
+    complexity: {
+      time: "O(1)",
+      space: "O(1)"
+    },
+    code: `function isEven(n){
   return n % 2 === 0;
-}
-</code></pre>`
+}`
+  }
 };

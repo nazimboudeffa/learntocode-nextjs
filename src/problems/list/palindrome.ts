@@ -26,30 +26,33 @@ export const palindrome: ProblemElement = {
   title: "Is Palindrome",
   difficulty: "Easy",
   category: "String",
-  problemStatement: `<p class='mt-3'>
-  Given a string <code>s</code>, return <code>true</code> if <code>s</code> is a palindrome, otherwise <code>false</code>.
-</p>`,
+  problemStatement: [
+    "Given a string s, return true if s is a palindrome, otherwise false."
+  ],
   examples: [
     { id: 1, inputText: "\"racecar\"", outputText: "true" },
     { id: 2, inputText: "\"hello\"", outputText: "false" },
   ],
-  constraints: `<p class='mt-2'>
-  Consider the string as-is (case-sensitive, no normalization).
-</p>`,
+  constraints: "Consider the string as-is (case-sensitive, no normalization).",
   handlerFunction: handlerIsPalindrome,
   starterCode: starterCodeIsPalindrome,
   order: 10,
   starterFunctionName: "function isPalindrome(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Use two-pointer from both ends and compare characters, or compare with its reverse. Time: O(n), Space: O(1) with two-pointers.</p>
-<pre><code>function isPalindrome(s){
+  solution: {
+    approach: "Use two pointers from both ends to compare characters.",
+    explanation: "Initialize two pointers at the start and end of the string. Move them toward each other, comparing characters. If any mismatch is found, return false. If all characters match, return true.",
+    complexity: {
+      time: "O(n)",
+      space: "O(1)"
+    },
+    code: `function isPalindrome(s){
   let i = 0, j = s.length - 1;
   while (i < j) {
     if (s[i] !== s[j]) return false;
     i++; j--;
   }
   return true;
-}
-</code></pre>`
+}`
+  }
 };

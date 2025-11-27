@@ -23,12 +23,20 @@ export type ProblemElement = {
 	title: string;
 	difficulty: "Easy" | "Medium" | "Hard";
 	category: string;
-	problemStatement: string;
+	problemStatement: string | string[]; // Plain text or array of paragraphs
 	examples: Example[];
-	constraints: string;
+	constraints: string | string[]; // Plain text or array of constraints
 	order: number;
 	videoId?: string;
-	solution?: string; // HTML explanation to render in the Explanation page
+	solution?: {
+		approach?: string;
+		explanation?: string | string[];
+		complexity?: {
+			time?: string;
+			space?: string;
+		};
+		code?: string;
+	};
 	starterCode: string;
 	handlerFunction: ((fn: any) => boolean) | string;
 	starterFunctionName: string;

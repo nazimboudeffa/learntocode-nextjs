@@ -27,15 +27,10 @@ export const sum: ProblemElement = {
 	title: "A Simple Sum",
 	difficulty: "Easy",
 	category: "Integer",
-	problemStatement: `<p class='mt-3'>
-  Welcome to Code 101! The place where to learn coding in a friendly and stressless environment.
-</p>
-<p class='mt-3'>
-  In this problem, you will be asked to write a function that adds two numbers together.
-</p>
-<p class='mt-3'>
-  After that just click the "Run" button to see how this works.
-</p>`,
+	problemStatement: [
+		"In this problem, you will be asked to write a function that adds two numbers together.",
+		"After that just click the \"Run\" button to see how this works."
+	],
 	examples: [
 		{
 			id: 1,
@@ -44,19 +39,21 @@ export const sum: ProblemElement = {
 			explanation: "1+2=3",
 		}
 	],
-	constraints: `<p class='mt-2'>
-	No constraints.
-</p>`,
+	constraints: "No constraints.",
 	handlerFunction: handlerSum,
 	starterCode: starterCodeSum,
 	order: 0,
 	starterFunctionName: "function add(",
     videoId: "KxcwwWNx5aA",
-	solution: `<p class='mt-3'>
-	Addition is straightforward: return <code>a + b</code>. Time: O(1), Space: O(1).
-	</p>
-	<pre><code>function add(a, b) {
+	solution: {
+		approach: "Addition is straightforward in JavaScript.",
+		explanation: "Simply return the sum of the two parameters using the + operator.",
+		complexity: {
+			time: "O(1)",
+			space: "O(1)"
+		},
+		code: `function add(a, b) {
   return a + b;
-}
-	</code></pre>`
+}`
+	}
 };

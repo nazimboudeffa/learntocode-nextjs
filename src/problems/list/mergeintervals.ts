@@ -33,24 +33,27 @@ export const mergeIntervals: ProblemElement = {
   title: "Merge Intervals",
   difficulty: "Hard",
   category: "Array",
-  problemStatement: `<p class='mt-3'>
-  Given an array of intervals where <code>intervals[i] = [start_i, end_i]</code>, merge all overlapping intervals and return an array of the non-overlapping intervals.
-</p>`,
+  problemStatement: [
+    "Given an array of intervals where intervals[i] = [start_i, end_i], merge all overlapping intervals and return an array of the non-overlapping intervals."
+  ],
   examples: [
     { id: 1, inputText: "[[1,3],[2,6],[8,10],[15,18]]", outputText: "[[1,6],[8,10],[15,18]]" },
     { id: 2, inputText: "[[1,4],[4,5]]", outputText: "[[1,5]]" },
   ],
-  constraints: `<p class='mt-2'>
-  1 ≤ intervals.length ≤ 10^4, intervals[i].length = 2
-</p>`,
+  constraints: "1 ≤ intervals.length ≤ 10^4, intervals[i].length = 2",
   handlerFunction: handlerMergeIntervals,
   starterCode: starterCodeMergeIntervals,
   order: 15,
   starterFunctionName: "function mergeIntervals(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Sort intervals by start, then sweep and merge when current start ≤ last end. Time: O(n log n) due to sort, Space: O(n).</p>
-<pre><code>function mergeIntervals(intervals){
+  solution: {
+    approach: "Sort intervals by start time, then merge overlapping ones.",
+    explanation: "First sort the intervals by their start values. Then iterate through and merge when the current interval's start is less than or equal to the last merged interval's end.",
+    complexity: {
+      time: "O(n log n)",
+      space: "O(n)"
+    },
+    code: `function mergeIntervals(intervals){
   intervals.sort((a,b)=>a[0]-b[0]);
   const res = [];
   for (const [s,e] of intervals){
@@ -58,6 +61,6 @@ Sort intervals by start, then sweep and merge when current start ≤ last end. T
     else res[res.length-1][1] = Math.max(res[res.length-1][1], e);
   }
   return res;
-}
-</code></pre>`
+}`
+  }
 };

@@ -30,24 +30,27 @@ export const isAnagram: ProblemElement = {
   title: "Valid Anagram",
   difficulty: "Medium",
   category: "String",
-  problemStatement: `<p class='mt-3'>
-  Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if <code>t</code> is an anagram of <code>s</code>, otherwise <code>false</code>.
-</p>`,
+  problemStatement: [
+    "Given two strings s and t, return true if t is an anagram of s, otherwise false."
+  ],
   examples: [
     { id: 1, inputText: "\"anagram\", \"nagaram\"", outputText: "true" },
     { id: 2, inputText: "\"rat\", \"car\"", outputText: "false" },
   ],
-  constraints: `<p class='mt-2'>
-  Only lowercase English letters.
-</p>`,
+  constraints: "Only lowercase English letters.",
   handlerFunction: handlerIsAnagram,
   starterCode: starterCodeIsAnagram,
   order: 14,
   starterFunctionName: "function isAnagram(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Count characters in one string and subtract using the other (or sort both). Hash counting is O(n) time, O(1) space for fixed alphabet.</p>
-<pre><code>function isAnagram(s, t){
+  solution: {
+    approach: "Count character frequencies using a hash map.",
+    explanation: "First check if lengths differ. Then count character frequencies in the first string. Finally, decrement counts using the second string. If any count goes negative, it's not an anagram.",
+    complexity: {
+      time: "O(n)",
+      space: "O(1)"
+    },
+    code: `function isAnagram(s, t){
   if (s.length !== t.length) return false;
   const cnt = new Map();
   for (const ch of s) cnt.set(ch, (cnt.get(ch)||0)+1);
@@ -57,6 +60,6 @@ Count characters in one string and subtract using the other (or sort both). Hash
     cnt.set(ch, v);
   }
   return true;
-}
-</code></pre>`
+}`
+  }
 };

@@ -29,26 +29,29 @@ export const firstLetter: ProblemElement = {
   title: "Get First Letter",
   difficulty: "Easy",
   category: "String",
-  problemStatement: `<p class='mt-3'>
-  Write a function that returns the first character of a string.
-</p>
-<p class='mt-3'>
-  This teaches you string indexing and character access.
-</p>`,
+  problemStatement: [
+    "Write a function that returns the first character of a string.",
+    "This teaches you string indexing and character access."
+  ],
   examples: [
     { id: 1, inputText: "\"hello\"", outputText: "\"h\"" },
     { id: 2, inputText: "\"JavaScript\"", outputText: "\"J\"" },
   ],
-  constraints: `<p class='mt-2'>String will always have at least one character.</p>`,
+  constraints: "String will always have at least one character.",
   handlerFunction: handlerFirstLetter,
   starterCode: starterCodeFirstLetter,
   order: 3,
   starterFunctionName: "function firstLetter(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Access the first character using bracket notation <code>s[0]</code>. Time: O(1), Space: O(1).</p>
-<pre><code>function firstLetter(s){
+  solution: {
+    approach: "Use bracket notation to access the first character.",
+    explanation: "In JavaScript, strings are zero-indexed arrays of characters. Access the first character using s[0].",
+    complexity: {
+      time: "O(1)",
+      space: "O(1)"
+    },
+    code: `function firstLetter(s){
   return s[0];
-}
-</code></pre>`
+}`
+  }
 };

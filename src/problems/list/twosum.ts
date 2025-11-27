@@ -34,30 +34,33 @@ export const twoSum: ProblemElement = {
   title: "Two Sum",
   difficulty: "Medium",
   category: "Array",
-  problemStatement: `<p class='mt-3'>
-  Given an array of integers <code>nums</code> and an integer <code>target</code>, return indices of the two numbers such that they add up to <code>target</code>.
-</p>`,
+  problemStatement: [
+    "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target."
+  ],
   examples: [
     { id: 1, inputText: "[2,7,11,15], 9", outputText: "[0,1]" },
     { id: 2, inputText: "[3,2,4], 6", outputText: "[1,2]" },
   ],
-  constraints: `<p class='mt-2'>
-  Exactly one solution exists; you may not use the same element twice.
-</p>`,
+  constraints: "Exactly one solution exists; you may not use the same element twice.",
   handlerFunction: handlerTwoSum,
   starterCode: starterCodeTwoSum,
   order: 13,
   starterFunctionName: "function twoSum(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Use a hash map to store value→index while iterating: for each <code>x</code>, check if <code>target - x</code> exists. Time: O(n), Space: O(n).</p>
-<pre><code>function twoSum(nums, target){
+  solution: {
+    approach: "Use a hash map to store value-to-index mappings.",
+    explanation: "Iterate through the array. For each element x, check if (target - x) exists in the hash map. If it does, return the indices. Otherwise, store x with its index in the map.",
+    complexity: {
+      time: "O(n)",
+      space: "O(n)"
+    },
+    code: `function twoSum(nums, target){
   const idx = new Map();
   for (let i = 0; i < nums.length; i++) {
     const need = target - nums[i];
     if (idx.has(need)) return [idx.get(need), i];
     idx.set(nums[i], i);
   }
-}
-</code></pre>`
+}`
+  }
 };

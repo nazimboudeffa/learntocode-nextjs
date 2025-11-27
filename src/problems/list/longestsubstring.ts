@@ -26,24 +26,27 @@ export const longestSubstring: ProblemElement = {
   title: "Longest Substring Without Repeating Characters",
   difficulty: "Hard",
   category: "String",
-  problemStatement: `<p class='mt-3'>
-  Given a string <code>s</code>, find the length of the longest substring without repeating characters.
-</p>`,
+  problemStatement: [
+    "Given a string s, find the length of the longest substring without repeating characters."
+  ],
   examples: [
     { id: 1, inputText: "\"abcabcbb\"", outputText: "3" },
     { id: 2, inputText: "\"bbbbb\"", outputText: "1" },
   ],
-  constraints: `<p class='mt-2'>
-  0 ≤ length(s) ≤ 10^4
-</p>`,
+  constraints: "0 ≤ length(s) ≤ 10^4",
   handlerFunction: handlerLongestSubstring,
   starterCode: starterCodeLongestSubstring,
   order: 16,
   starterFunctionName: "function lengthOfLongestSubstring(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Sliding window with a map of last seen positions; move left pointer when a duplicate appears. Time: O(n), Space: O(k).</p>
-<pre><code>function lengthOfLongestSubstring(s){
+  solution: {
+    approach: "Use sliding window with a hash map tracking last seen positions.",
+    explanation: "Maintain a window with two pointers. Store each character's last seen position in a map. When a duplicate is found within the window, move the left pointer past the previous occurrence. Track the maximum window size.",
+    complexity: {
+      time: "O(n)",
+      space: "O(k)"
+    },
+    code: `function lengthOfLongestSubstring(s){
   const seen = new Map();
   let best = 0, left = 0;
   for (let right = 0; right < s.length; right++){
@@ -53,6 +56,6 @@ Sliding window with a map of last seen positions; move left pointer when a dupli
     best = Math.max(best, right - left + 1);
   }
   return best;
-}
-</code></pre>`
+}`
+  }
 };

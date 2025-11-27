@@ -29,31 +29,34 @@ export const filterPositive: ProblemElement = {
   title: "Filter Positive Numbers",
   difficulty: "Easy",
   category: "Array",
-  problemStatement: `<p class='mt-3'>
-  Write a function that returns a new array containing only the positive numbers from the input array.
-</p>
-<p class='mt-3'>
-  This teaches you array filtering and conditional logic.
-</p>`,
+  problemStatement: [
+    "Write a function that returns a new array containing only the positive numbers from the input array.",
+    "This teaches you array filtering and conditional logic."
+  ],
   examples: [
     { id: 1, inputText: "[1, -2, 3, -4, 5]", outputText: "[1, 3, 5]" },
     { id: 2, inputText: "[-1, -2, -3]", outputText: "[]" },
     { id: 3, inputText: "[10, 20]", outputText: "[10, 20]" },
   ],
-  constraints: `<p class='mt-2'>No constraints.</p>`,
+  constraints: "No constraints.",
   handlerFunction: handlerFilterPositive,
   starterCode: starterCodeFilterPositive,
   order: 6,
   starterFunctionName: "function filterPositive(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Loop through and add only positive numbers to result array, or use <code>arr.filter(x => x > 0)</code>. Time: O(n), Space: O(n).</p>
-<pre><code>function filterPositive(arr){
+  solution: {
+    approach: "Iterate through the array and collect positive numbers.",
+    explanation: "Create an empty result array, loop through the input, and add numbers greater than 0 to the result. Alternatively, use arr.filter(x => x > 0).",
+    complexity: {
+      time: "O(n)",
+      space: "O(n)"
+    },
+    code: `function filterPositive(arr){
   const result = [];
   for (const num of arr) {
     if (num > 0) result.push(num);
   }
   return result;
-}
-</code></pre>`
+}`
+  }
 };

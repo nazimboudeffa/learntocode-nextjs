@@ -32,24 +32,14 @@ export const fizzBuzz: ProblemElement = {
 	title: "Fizz Buzz",
 	difficulty: "Easy",
 	category: "Integer",
-	problemStatement: `<p class='mt-3'>
-	This is the very known Fizz Buzz problem
-</p>
-<p class='mt-3'>
-	Return an array containing the numbers from 1 to N, where N is the parametered value.
-</p>
-<p class='mt-3'>
-	But for multiples of three use “Fizz” instead of the number and for the multiples of five use “Buzz”.
-</p>
-<p class='mt-3'>
-	For numbers which are multiples of both three and five use “FizzBuzz”.
-</p>
-<p class='mt-3'>
-	For example, if you pass in 15, the output should be: <code>[1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"]</code>
-</p>
-<p class='mt-3'>
-	After that just click the "Run" button to see how this works.
-</p>`,
+	problemStatement: [
+		"This is the very known Fizz Buzz problem.",
+		"Return an array containing the numbers from 1 to N, where N is the parametered value.",
+		"But for multiples of three use 'Fizz' instead of the number and for the multiples of five use 'Buzz'.",
+		"For numbers which are multiples of both three and five use 'FizzBuzz'.",
+		"For example, if you pass in 15, the output should be: [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'FizzBuzz']",
+		"After that just click the 'Run' button to see how this works."
+	],
 	examples: [
 		{
 			id: 1,
@@ -70,24 +60,19 @@ export const fizzBuzz: ProblemElement = {
 			explanation: "multiples of 3 is Fizz and multiples of 5 is Buzz, so 15 is multiple of 3 and 5 is FizzBuzz",
 		}
 	],
-	constraints: `<p class='mt-2'>
-	N will never be less than 1.
-</p>`,
+	constraints: "N will never be less than 1.",
 	handlerFunction: handlerFizzBuzz,
 	starterCode: starterCodeFizzBuzz,
 	order: 11,
 	starterFunctionName: "function fizzbuzz(",
-	solution: `<p class='mt-3'>
-Iterate i from 1..N and push:
-<ul>
-<li>"FizzBuzz" if i%3==0 and i%5==0</li>
-<li>"Fizz" if i%3==0</li>
-<li>"Buzz" if i%5==0</li>
-<li>i otherwise</li>
-</ul>
-Time: O(N), Space: O(N).
-</p>
-<pre><code>function fizzbuzz(n) {
+	solution: {
+		approach: "Iterate from 1 to N and apply conditional logic for each number.",
+		explanation: "Loop through numbers 1 to N. For each number: if divisible by both 3 and 5, add 'FizzBuzz'; else if divisible by 3, add 'Fizz'; else if divisible by 5, add 'Buzz'; otherwise add the number itself.",
+		complexity: {
+			time: "O(N)",
+			space: "O(N)"
+		},
+		code: `function fizzbuzz(n) {
   const out = [];
   for (let i=1;i<=n;i++) {
     const by3 = i%3===0, by5 = i%5===0;
@@ -97,7 +82,7 @@ Time: O(N), Space: O(N).
     else out.push(i);
   }
   return out;
-}
-</code></pre>`,
+}`
+	},
 	videoId: "",
 };

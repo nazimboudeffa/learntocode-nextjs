@@ -30,32 +30,35 @@ export const countVowels: ProblemElement = {
   title: "Count Vowels in String",
   difficulty: "Easy",
   category: "String",
-  problemStatement: `<p class='mt-3'>
-  Write a function that counts the number of vowels (a, e, i, o, u) in a string.
-</p>
-<p class='mt-3'>
-  Count both lowercase vowels. This teaches loops and string manipulation.
-</p>`,
+  problemStatement: [
+    "Write a function that counts the number of vowels (a, e, i, o, u) in a string.",
+    "Count both lowercase vowels. This teaches loops and string manipulation."
+  ],
   examples: [
     { id: 1, inputText: "\"hello\"", outputText: "2", explanation: "e and o" },
     { id: 2, inputText: "\"aeiou\"", outputText: "5" },
     { id: 3, inputText: "\"xyz\"", outputText: "0" },
   ],
-  constraints: `<p class='mt-2'>Only lowercase letters.</p>`,
+  constraints: "Only lowercase letters.",
   handlerFunction: handlerCountVowels,
   starterCode: starterCodeCountVowels,
   order: 9,
   starterFunctionName: "function countVowels(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Loop through each character and check if it's a vowel. Time: O(n), Space: O(1).</p>
-<pre><code>function countVowels(s){
+  solution: {
+    approach: "Loop through each character and check if it's a vowel.",
+    explanation: "Define a string or set containing vowels (aeiou), then iterate through each character in the input string and increment a counter if the character is a vowel.",
+    complexity: {
+      time: "O(n)",
+      space: "O(1)"
+    },
+    code: `function countVowels(s){
   const vowels = 'aeiou';
   let count = 0;
   for (const ch of s) {
     if (vowels.includes(ch)) count++;
   }
   return count;
-}
-</code></pre>`
+}`
+  }
 };

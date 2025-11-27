@@ -29,31 +29,34 @@ export const sumArray: ProblemElement = {
   title: "Sum All Numbers in Array",
   difficulty: "Easy",
   category: "Array",
-  problemStatement: `<p class='mt-3'>
-  Write a function that returns the sum of all numbers in an array.
-</p>
-<p class='mt-3'>
-  This teaches you array iteration and accumulation.
-</p>`,
+  problemStatement: [
+    "Write a function that returns the sum of all numbers in an array.",
+    "This teaches you array iteration and accumulation."
+  ],
   examples: [
     { id: 1, inputText: "[1, 2, 3]", outputText: "6" },
     { id: 2, inputText: "[10, -5, 5]", outputText: "10" },
     { id: 3, inputText: "[]", outputText: "0" },
   ],
-  constraints: `<p class='mt-2'>No constraints.</p>`,
+  constraints: "No constraints.",
   handlerFunction: handlerSumArray,
   starterCode: starterCodeSumArray,
   order: 4,
   starterFunctionName: "function sumArray(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Initialize sum to 0, loop through array and add each element. Time: O(n), Space: O(1).</p>
-<pre><code>function sumArray(arr){
+  solution: {
+    approach: "Initialize a sum variable and iterate through the array.",
+    explanation: "Start with sum = 0, then loop through each element in the array and add it to the sum.",
+    complexity: {
+      time: "O(n)",
+      space: "O(1)"
+    },
+    code: `function sumArray(arr){
   let sum = 0;
   for (const num of arr) {
     sum += num;
   }
   return sum;
-}
-</code></pre>`
+}`
+  }
 };

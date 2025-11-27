@@ -29,31 +29,34 @@ export const repeatString: ProblemElement = {
   title: "Repeat String N Times",
   difficulty: "Easy",
   category: "String",
-  problemStatement: `<p class='mt-3'>
-  Write a function that repeats a given string <code>s</code> exactly <code>n</code> times.
-</p>
-<p class='mt-3'>
-  This teaches you loops and string concatenation.
-</p>`,
+  problemStatement: [
+    "Write a function that repeats a given string s exactly n times.",
+    "This teaches you loops and string concatenation."
+  ],
   examples: [
     { id: 1, inputText: "\"a\", 3", outputText: "\"aaa\"" },
     { id: 2, inputText: "\"hi\", 2", outputText: "\"hihi\"" },
     { id: 3, inputText: "\"x\", 0", outputText: "\"\"" },
   ],
-  constraints: `<p class='mt-2'>n ≥ 0</p>`,
+  constraints: "n ≥ 0",
   handlerFunction: handlerRepeatString,
   starterCode: starterCodeRepeatString,
   order: 7,
   starterFunctionName: "function repeatString(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Use a loop to concatenate the string n times, or use <code>s.repeat(n)</code>. Time: O(n), Space: O(n).</p>
-<pre><code>function repeatString(s, n){
+  solution: {
+    approach: "Use a loop to concatenate the string n times.",
+    explanation: "Initialize an empty result string, then loop n times and concatenate the input string. Alternatively, use the built-in s.repeat(n) method.",
+    complexity: {
+      time: "O(n)",
+      space: "O(n)"
+    },
+    code: `function repeatString(s, n){
   let result = '';
   for (let i = 0; i < n; i++) {
     result += s;
   }
   return result;
-}
-</code></pre>`
+}`
+  }
 };

@@ -52,7 +52,8 @@ const Confetti: React.FC<ConfettiProps> = ({ active }) => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach((particle, index) => {
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const particle = particles[i];
         ctx.save();
         ctx.translate(particle.x, particle.y);
         ctx.rotate((particle.rotation * Math.PI) / 180);
@@ -66,9 +67,9 @@ const Confetti: React.FC<ConfettiProps> = ({ active }) => {
         particle.vy += 0.1; // gravity
 
         if (particle.y > canvas.height) {
-          particles.splice(index, 1);
+          particles.splice(i, 1);
         }
-      });
+      }
 
       if (particles.length > 0) {
         animationId = requestAnimationFrame(animate);

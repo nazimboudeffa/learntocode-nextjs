@@ -24,14 +24,14 @@ const Problems: React.FC<ProblemsProps> = ({ difficulty }) => {
             <p className="text-slate-400">Showing {filteredProblems.length} {difficulty.toLowerCase()} level problems</p>
           </div>
         )}
-        <table className='text-sm text-left sm:w-7/12 w-full min-w-[600px] mx-auto bg-slate-800/50 rounded-xl shadow-xl border border-slate-700'>
+        <table className='text-sm text-left sm:w-9/12 w-full min-w-[600px] mx-auto bg-slate-800/50 rounded-xl shadow-xl border border-slate-700'>
           <thead className='text-xs text-slate-300 uppercase border-b border-slate-700'>
             <tr className='bg-gradient-to-r from-indigo-600/20 to-purple-600/20'>
               <th scope='col' className='px-1 py-3 w-[50px] font-medium'>Status</th>
               <th scope='col' className='px-3 sm:px-6 py-3 font-medium'>Title</th>
-              <th scope='col' className='px-3 sm:px-6 py-3 w-[120px] font-medium'>Difficulty</th>
-              <th scope='col' className='px-3 sm:px-6 py-3 w-[120px] font-medium hidden sm:table-cell'>Category</th>
-              <th scope='col' className='px-3 sm:px-6 py-3 w-[100px] font-medium'>Solution</th>
+              <th scope='col' className='px-3 sm:px-6 py-3 w-[100px] font-medium'>Difficulty</th>
+              <th scope='col' className='px-3 sm:px-6 py-3 w-[100px] font-medium hidden sm:table-cell'>Category</th>
+              <th scope='col' className='px-3 sm:px-6 py-3 w-[90px] font-medium'>Solution</th>
             </tr>
           </thead>
           <tbody>

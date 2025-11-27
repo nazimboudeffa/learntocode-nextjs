@@ -29,31 +29,34 @@ export const maxNumber: ProblemElement = {
   title: "Find Maximum in Array",
   difficulty: "Easy",
   category: "Array",
-  problemStatement: `<p class='mt-3'>
-  Write a function that finds and returns the maximum number in an array.
-</p>
-<p class='mt-3'>
-  This teaches you how to work with arrays and comparison operators.
-</p>`,
+  problemStatement: [
+    "Write a function that finds and returns the maximum number in an array.",
+    "This teaches you how to work with arrays and comparison operators."
+  ],
   examples: [
     { id: 1, inputText: "[1, 5, 3, 9, 2]", outputText: "9" },
     { id: 2, inputText: "[10]", outputText: "10" },
     { id: 3, inputText: "[-5, -1, -10]", outputText: "-1" },
   ],
-  constraints: `<p class='mt-2'>Array will always have at least one element.</p>`,
+  constraints: "Array will always have at least one element.",
   handlerFunction: handlerMaxNumber,
   starterCode: starterCodeMaxNumber,
   order: 5,
   starterFunctionName: "function maxNumber(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Start with the first element as max, then loop and update if you find a larger value. Or use <code>Math.max(...arr)</code>. Time: O(n), Space: O(1).</p>
-<pre><code>function maxNumber(arr){
+  solution: {
+    approach: "Track the maximum value while iterating through the array.",
+    explanation: "Initialize max with the first element, then loop through the array and update max whenever you find a larger value. Alternatively, use Math.max(...arr).",
+    complexity: {
+      time: "O(n)",
+      space: "O(1)"
+    },
+    code: `function maxNumber(arr){
   let max = arr[0];
   for (const num of arr) {
     if (num > max) max = num;
   }
   return max;
-}
-</code></pre>`
+}`
+  }
 };

@@ -26,25 +26,28 @@ export const reverseString: ProblemElement = {
   title: "Reverse String",
   difficulty: "Easy",
   category: "String",
-  problemStatement: `<p class='mt-3'>
-  Given a string <code>s</code>, return the string reversed.
-</p>`,
+  problemStatement: [
+    "Given a string s, return the string reversed."
+  ],
   examples: [
     { id: 1, inputText: "\"hello\"", outputText: "\"olleh\"" },
     { id: 2, inputText: "\"racecar\"", outputText: "\"racecar\"", explanation: "Palindrome stays the same" },
   ],
-  constraints: `<p class='mt-2'>
-  0 ≤ length(s) ≤ 10^4
-</p>`,
+  constraints: "0 ≤ length(s) ≤ 10^4",
   handlerFunction: handlerReverseString,
   starterCode: starterCodeReverseString,
   order: 8,
   starterFunctionName: "function reverseString(",
   videoId: "",
-  solution: `<p class='mt-3'>
-Reverse by iterating from end to start, or split-reverse-join. Time: O(n), Space: O(n).</p>
-<pre><code>function reverseString(s){
+  solution: {
+    approach: "Use split-reverse-join or iterate from end to start.",
+    explanation: "Convert the string to an array using split(''), reverse the array, and join it back into a string. Alternatively, iterate from the end to the beginning building a new string.",
+    complexity: {
+      time: "O(n)",
+      space: "O(n)"
+    },
+    code: `function reverseString(s){
   return s.split('').reverse().join('');
-}
-</code></pre>`
+}`
+  }
 };
