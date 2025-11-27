@@ -1,6 +1,9 @@
 import Navbar from "@/components/Navbar"
+import { problemsList } from "@/problems/list"
 
 const Home = () => {
+    const totalProblems = problemsList.length;
+    
     return (
       <>
       <Navbar/>
@@ -46,7 +49,7 @@ const Home = () => {
               {/* Stats */}
               <div className="mt-16 pt-8 border-t border-slate-700/50 grid grid-cols-3 gap-8 max-w-xl mx-auto">
                 <div className="text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">10+</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">{totalProblems}</div>
                   <div className="text-sm text-slate-400 mt-1">Challenges</div>
                 </div>
                 <div className="text-center">
