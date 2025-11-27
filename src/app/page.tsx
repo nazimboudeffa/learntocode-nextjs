@@ -15,7 +15,7 @@ const Home = () => {
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 sm:mb-8 inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-indigo-500/10 border border-indigo-500/30 rounded-full text-xs sm:text-sm">
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-green-500 animate-pulse"></span>
-                <span className="text-green-300 font-medium">Free Forever • Interactive Learning</span>
+                <span className="text-green-300 font-medium">Free Forever • Tip me instead 😊</span>
               </div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 px-2">
@@ -40,6 +40,7 @@ const Home = () => {
                 </a>
                 <a 
                   href="https://nazimboudeffa.gumroad.com" 
+                  target="_blank"
                   className="w-full sm:w-auto text-center px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-slate-300 hover:text-white transition-colors border border-slate-600 rounded-lg sm:rounded-xl hover:border-indigo-500 hover:bg-slate-800/50"
                 >
                   Read the Books First
@@ -134,6 +135,19 @@ const Home = () => {
           </div>
         </div>
       </main>
+      {/* Footer */}
+      <footer className="bg-[#0b0f14] border-t border-slate-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex items-center justify-center">
+          <a
+            href="https://codewithadu.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-indigo-400 transition-colors text-sm sm:text-base"
+          >
+            Back to codewithadu.de →
+          </a>
+        </div>
+      </footer>
       </>
     )
 }

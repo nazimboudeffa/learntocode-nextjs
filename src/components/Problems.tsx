@@ -42,7 +42,7 @@ const Problems: React.FC<ProblemsProps> = ({ difficulty }) => {
               const isSolved = solvedSlugs.has(problem.slug);
               return (
                 <tr className={`${idx % 2 == 1 ? "bg-slate-800/30" : ""} border-b border-slate-700/50 hover:bg-slate-700/30 transition-colors`} key={problem.id}>
-                  <td className='px-2 py-4 font-medium whitespace-nowrap text-green-400'>
+                  <td className='px-2 py-4 font-medium whitespace-nowrap text-green-400 text-center'>
                     {isSolved ? (<BsCheckCircle fontSize={"18"} width='18' />) : (<BsCircle fontSize={"18"} width='18' />)}
                   </td>
                   <td className='px-3 sm:px-6 py-4 text-slate-200'>

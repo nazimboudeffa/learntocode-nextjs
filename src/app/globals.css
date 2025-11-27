@@ -14,28 +14,29 @@
     box-sizing: border-box;
     background-clip: padding-box;
     z-index: 1;
+    background-color: transparent;
 }
 
 .gutter.gutter-horizontal {
     cursor: col-resize;
-    background-color: #4f46e5;
-    border-left: 1px solid #312e81;
-    border-right: 1px solid #312e81;
+    background: linear-gradient(90deg, #1e293b 0%, #334155 50%, #1e293b 100%);
+    border-left: 1px solid #475569;
+    border-right: 1px solid #475569;
 }
 
 .gutter.gutter-horizontal:hover {
-    background-color: #6366f1;
-    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+    background: linear-gradient(90deg, #334155 0%, #475569 50%, #334155 100%);
+    box-shadow: 0 0 12px rgba(79, 70, 229, 0.3);
 }
 
 .gutter.gutter-vertical {
     cursor: row-resize;
-    background-color: #4f46e5;
-    border-top: 1px solid #312e81;
-    border-bottom: 1px solid #312e81;
+    background: linear-gradient(180deg, #1e293b 0%, #334155 50%, #1e293b 100%);
+    border-top: 1px solid #475569;
+    border-bottom: 1px solid #475569;
 }
 
 .gutter.gutter-vertical:hover {
-    background-color: #6366f1;
-    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+    background: linear-gradient(180deg, #334155 0%, #475569 50%, #334155 100%);
+    box-shadow: 0 0 12px rgba(79, 70, 229, 0.3);
 }

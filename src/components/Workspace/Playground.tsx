@@ -120,7 +120,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 	}
 
 	return (
-		<div className='flex flex-col bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-x-hidden'>
+		<div className='flex flex-col bg-[#0d1117] relative overflow-x-hidden'>
 			<PreferenceNav settings={settings} setSettings={setSettings} />
 
 			<Split className='h-[calc(100vh-94px)]' direction='vertical' sizes={[50, 50]} minSize={60}>
