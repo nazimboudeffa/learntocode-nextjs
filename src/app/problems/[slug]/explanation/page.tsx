@@ -108,6 +108,17 @@ export default function ProblemExplanationPage(context: any) {
             )}
           </div>
 
+          {/* Starter Code Section */}
+          <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700 shadow-xl mb-8">
+            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span className="text-2xl">⚡</span>
+              Starter Code
+            </h2>
+            <pre className="bg-slate-950 rounded-xl p-4 overflow-x-auto border border-slate-700">
+              <code className="text-sm text-slate-300 font-mono">{problem.starterCode}</code>
+            </pre>
+          </div>
+
 					{/* Solution Section */}
 					<div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700 shadow-xl mb-8">
 						<h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
@@ -115,7 +126,7 @@ export default function ProblemExplanationPage(context: any) {
 							Solution & Approach
 						</h2>
 						{problem.solution ? (
-							<div className="space-y-6">
+              <div className="space-y-6">
 								{problem.solution.approach && (
 									<div>
 										<h3 className="text-lg font-semibold text-indigo-400 mb-2">Approach:</h3>
@@ -159,6 +170,15 @@ export default function ProblemExplanationPage(context: any) {
 										<pre className="bg-slate-950 rounded-xl p-4 overflow-x-auto border border-slate-700">
 											<code className="text-sm text-slate-300 font-mono">{problem.solution.code}</code>
 										</pre>
+                    <div className="mt-4">
+                      <a
+                        href={`/problems/${slug}`}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold rounded-lg transition-all hover:scale-105 shadow-lg"
+                      >
+                        <span>Try it yourself</span>
+                        <span>→</span>
+                      </a>
+                    </div>
 									</div>
 								)}
 							</div>
@@ -169,25 +189,7 @@ export default function ProblemExplanationPage(context: any) {
 								<p className="text-sm text-slate-500 mt-2">Check back soon or watch the video above!</p>
 							</div>
 						)}
-					</div>          {/* Starter Code Section */}
-          <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700 shadow-xl">
-            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <span className="text-2xl">⚡</span>
-              Starter Code
-            </h2>
-            <pre className="bg-slate-950 rounded-xl p-4 overflow-x-auto border border-slate-700">
-              <code className="text-sm text-slate-300 font-mono">{problem.starterCode}</code>
-            </pre>
-            <div className="mt-4 flex gap-3">
-              <a
-                href={`/problems/${slug}`}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold rounded-lg transition-all hover:scale-105 shadow-lg"
-              >
-                <span>Try it yourself</span>
-                <span>→</span>
-              </a>
-            </div>
-          </div>
+					</div>
         </div>
       </main>
     </>
