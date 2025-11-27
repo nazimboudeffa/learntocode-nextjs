@@ -15,7 +15,7 @@ const Home = () => {
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 sm:mb-8 inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-indigo-500/10 border border-indigo-500/30 rounded-full text-xs sm:text-sm">
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-green-500 animate-pulse"></span>
-                <span className="text-green-300 font-medium">Free Forever • Tip me instead 😊</span>
+                <span className="text-green-300 font-medium">Free Forever • Tip Us Instead 😊</span>
               </div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 px-2">
