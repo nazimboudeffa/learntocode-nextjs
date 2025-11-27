@@ -12,7 +12,7 @@ import ToastProvider from "./ToastProvider";
 
 type PlaygroundProps = {
 	problem: ProblemElement;
-	setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+	setSuccess?: React.Dispatch<React.SetStateAction<boolean>>;
 	setSolved: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
@@ -44,10 +44,12 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 						autoClose: 3000,
 						theme: "dark",
 					});
-					setSuccess(true);
-					setTimeout(() => {
-						setSuccess(false);
-					}, 4000);
+					if (setSuccess) {
+						setSuccess(true);
+						setTimeout(() => {
+							setSuccess(false);
+						}, 4000);
+					}
 					setSolved(true);
 					localStorage.setItem(`solved-${problem.slug}`, "true");
 				}

@@ -4,9 +4,7 @@ import Split from "react-split"
 import ProblemDescription from "./ProblemDescription"
 import Playground from "./Playground"
 import { ProblemElement } from "@/problems/types/problem"
-import useWindowSize from "@/hooks/useWindowSize"
 import { useState, useEffect } from "react"
-import Confetti from "react-confetti";
 import Navbar from "../Navbar"
 
 type WorkspaceProps = {
@@ -14,8 +12,6 @@ type WorkspaceProps = {
 };
 
 const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
-	const { width, height } = useWindowSize();
-	const [success, setSuccess] = useState(false);
 	const [solved, setSolved] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 
@@ -37,8 +33,7 @@ const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
 					<ProblemDescription problem={problem} _solved={solved} />
 				</div>
 				<div className='h-[50vh]'>
-					<Playground problem={problem} setSuccess={setSuccess} setSolved={setSolved} />
-					{success && <Confetti gravity={0.3} tweenDuration={4000} width={width - 1} height={height - 1} />}
+					<Playground problem={problem} setSolved={setSolved} />
 				</div>
 			</div>
 		) : (
@@ -47,8 +42,7 @@ const Workspace: React.FC<WorkspaceProps> = ({ problem }) => {
 					<ProblemDescription problem={problem} _solved={solved} />
 				</div>
 				<div>
-					<Playground problem={problem} setSuccess={setSuccess} setSolved={setSolved} />
-					{success && <Confetti gravity={0.3} tweenDuration={4000} width={width - 1} height={height - 1} />}
+					<Playground problem={problem} setSolved={setSolved} />
 				</div>
 			</Split>
 		)}
