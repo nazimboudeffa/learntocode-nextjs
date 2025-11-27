@@ -31,7 +31,7 @@ const Problems: React.FC<ProblemsProps> = ({ difficulty }) => {
               <th scope='col' className='px-3 sm:px-6 py-3 font-medium'>Title</th>
               <th scope='col' className='px-3 sm:px-6 py-3 w-[100px] font-medium'>Difficulty</th>
               <th scope='col' className='px-3 sm:px-6 py-3 w-[100px] font-medium hidden sm:table-cell'>Category</th>
-              <th scope='col' className='px-3 sm:px-6 py-3 w-[90px] font-medium'>Solution</th>
+              <th scope='col' className='px-3 sm:px-6 py-3 w-[90px] font-medium'>Explanation</th>
             </tr>
           </thead>
           <tbody>
