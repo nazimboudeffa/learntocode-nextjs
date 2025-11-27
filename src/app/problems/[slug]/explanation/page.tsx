@@ -1,8 +1,10 @@
+import { use } from "react";
 import Navbar from "@/components/Navbar";
 import { problems } from "@/problems/list";
 
 export default function ProblemExplanationPage(context: any) {
-  const slug = context.params.slug as string;
+  const params = use(context.params);
+  const slug = params.slug as string;
   const problem = problems[slug];
   if (!problem) {
     return (
