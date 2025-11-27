@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
                 <div className='flex items-center justify-center flex-1'>
                     <Link 
                         href='/problems'
-                        className='text-sm sm:text-base font-semibold text-slate-200 hover:text-purple-400 cursor-pointer transition-colors'
+                        className='text-xs sm:text-sm md:text-base font-semibold text-slate-200 hover:text-purple-400 cursor-pointer transition-colors whitespace-nowrap'
                     >
                         All the Problems
                     </Link>
